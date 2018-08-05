@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class zoneadmin extends Model
+class Zoneadmin extends Model
 {
     public function user(){
         return $this->hasOne( User::class,'id','user_id');

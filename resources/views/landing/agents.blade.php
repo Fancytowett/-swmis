@@ -29,18 +29,18 @@
 
                                 <tr >
                                     <td  >Name:</td>
-{{--                                    <td>{{$zoneadmin->user->name}}</td>--}}
+                                    <td>{{$zoneadmins->user->name}}</td>
 
                                 </tr>
                                 <tr >
                                     <td >Email:</td>
-{{--                                    <td>{{$zoneadmin->user->email}}</td>--}}
+                                    <td>{{$zoneadmins->user->email}}</td>
 
                                 </tr>
 
                                 <tr >
                                     <td>Phone no.:</td>
-{{--                                    <td>{{$zoneadmin->phone}}</td>--}}
+                                    <td>{{$zoneadmins->phone}}</td>
                                 </tr>
 
                             </table>

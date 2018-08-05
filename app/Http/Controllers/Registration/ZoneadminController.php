@@ -5,7 +5,7 @@ use App\Agent;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Zone;
-use App\zoneadmin;
+use App\Zoneadmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,7 +15,7 @@ class ZoneadminController extends Controller
     {
         $zones=Zone::all();
         $agents=Agent::all();
-        return view('Registration.zoneadmin')->withZones($zones)->withAgents($agents);
+        return view('registration.zoneadmin')->withZones($zones)->withAgents($agents);
     }
 
     public function store( Request $request){
@@ -27,7 +27,7 @@ class ZoneadminController extends Controller
         $user->save();
 
 
-         $zoneadmin= new zoneadmin();
+         $zoneadmin= new Zoneadmin();
          $zoneadmin->user_id= $user->id;
          $zoneadmin->zone_id=$request->input('zone_id');
          $zoneadmin->phone=$request->input('phone');
@@ -39,7 +39,7 @@ class ZoneadminController extends Controller
     public function destroy($id)
     {
 
-        $zadmin = zoneadmin::find($id);
+        $zadmin = Zoneadmin::find($id);
         User::find($zadmin->user_id)->delete();
         $zadmin->delete();
         return redirect()->back()->withStatus('record deleted');
@@ -47,7 +47,7 @@ class ZoneadminController extends Controller
     }
     public function  update(Request $request ,$id){
 
-        $zoneadmin = zoneadmin::find($id);
+        $zoneadmin = Zoneadmin::find($id);
         User::find($zoneadmin->user_id);
         $zoneadmin->update($request->all());
         return redirect()->back();
