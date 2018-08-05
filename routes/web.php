@@ -115,6 +115,8 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/zonewasteproducersschedule','wasteproducersController@wasteproducersschedule');
 
     Route::get('/agentprofile','AgentController@profile');
+    Route::get('/agentprofile/{agent}/get','AgentController@getProfile')->name('agent.profile.get');
+    Route::post('/agentprofile/{agent}/update','AgentController@updateProfile')->name('agent.profile.update');
 
 
     Route::get('/zoneadminprofile','ZoneadminController@zoneadminprofile');
