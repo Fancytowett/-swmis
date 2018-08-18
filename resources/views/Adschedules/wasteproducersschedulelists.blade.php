@@ -31,7 +31,7 @@
                                     <td>{{$schedule->day}}</td>
                                     <td>{{$sxhedule->stime}}</td>
                                     <td>{{$schedule->ftime}}</td>
-                                    <td>{{$schedule->agents[]}}</td>
+                                    <td>{{$schedule->agents}}</td>
                                     @endforeach
 
                                 </tr>

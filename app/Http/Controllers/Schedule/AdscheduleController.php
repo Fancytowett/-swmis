@@ -41,12 +41,12 @@ class AdscheduleController extends Controller
  }
  public function wasteproducersschedulelist(){
 
-       if( $schedule=WasteProducersSchedule::where('zone_id'-auth()->user()->resident->zone_id)->get())
+       if( $schedule=WasteProducersSchedule::where('zone_id',auth()->user()->resident->zone_id)->get())
      {
          return view('Adschedules.wasteproducersschedulelists')->withSchedules($schedule);
      }
        else{
-          $schedule=WasteProducersSchedule::where('zone_id' - auth()->user()->company->zone_id)->get();
+          $schedule=WasteProducersSchedule::where('zone_id' ,auth()->user()->company->zone_id)->get();
          return view('Adschedules.wasteproducersschedulelists')->withSchedules($schedule);
 
      }
