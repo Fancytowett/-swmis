@@ -1,48 +1,70 @@
-
-
-<div class="adminnav">
-    <div class="panel" >
-        <div class="body" >
-             <a href="{{url('/home')}}">  <h4  style="font-size: 40px;">Dashboard</h4></a>
-                <li class="li"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    ZONES
-                </li>
-                <div class="collapse" id="collapseExample" style="background-color:#010133 ;">
-                    <li><a href="{{url('/zones/add')}} ">ADD</a></li>
-                    <li ><a href="{{url('zonelists')}}">Zone List</a></li>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4>Dashboard</h4>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group custom-nav">
+            <li class="list-group-item">
+                <a href="{{url('/home')}}">
+                    <i class="fa fa-dashboard"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="list-group-item"  data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Zones
+                <div class="collapse" id="collapseExample">
+                   <ul class="">
+                       <li><a href="{{url('/zones/add')}} ">Add</a></li>
+                       <li><a href="{{url('zonelists')}}">Zone List</a></li>
+                   </ul>
                 </div>
-                <li class="li "  data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
-                    ZONEADMIN
-                </li>
+            </li>
+
+            <li class="list-group-item"  data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+                Zone Admins
                 <div class="collapse" id="collapse2">
-                    <li><a href="{{url('/zoneadmin')}}" >ADD</a></li>
-                    <li><a href="{{url('/zoneadminlist')}}" >Zone Admins List</a></li>
+                    <ul class="">
+                        <li><a href="{{url('/zoneadmin')}}" >Add </a></li>
+                        <li><a href="{{url('/zoneadminlist')}}" >Zone Admins List</a></li>
+                    </ul>
                 </div>
-                <li class="li"  data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
-                    AGENTS
-                </li>
+            </li>
+
+            <li class="list-group-item"  data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
+                Agents
                 <div class="collapse" id="collapse3">
-                         <li><a href="{{url('/agents/add')}}" > ADD</a></li>
+                    <ul>
+                        <li><a href="{{url('/agents/add')}}" > Add</a></li>
                         <li><a href="{{url('/agentlist')}}" > Agents</a></li>
+                    </ul>
                 </div>
-                <li class="li"  data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapseExample">
-                    WASTE PRODUCERS
-                </li>
+            </li>
+
+            <li class="list-group-item"  data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapseExample">
+                Waste Producers
                 <div class="collapse" id="collapse4">
-                    <li><a href="{{url('/residentlist')}}">Residents</a></li>
-                    <li><a href="{{url('/companylist')}}">Companies</a></li>
+                    <ul>
+                        <li><a href="{{url('/residentlist')}}">Residents</a></li>
+                        <li><a href="{{url('/companylist')}}">Companies</a></li>
+                    </ul>
                 </div>
-                    <li><a href="{{url('/recyclerlist')}}" >Recyclers</a></li>
-                    <li><a href="{{url('#')}}" >Amount of waste</a></li>
-                    <li><a href="{{url('/payments')}}" >Payments</a></li>
-                    <li><a href="{{url('#')}}" >Users</a></li>
-                <li class="li"  data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseExample">
-                    SCHEDULES
-                </li>
+            </li>
+
+            <li class="list-group-item"><a href="{{url('/recyclerlist')}}" >Recyclers</a></li>
+            <li class="list-group-item"><a href="{{url('#')}}" >Amount of waste</a></li>
+            <li class="list-group-item"><a href="{{url('/payments')}}" >Payments</a></li>
+            <li class="list-group-item"><a href="{{url('#')}}" >Users</a></li>
+            <li class="list-group-item"  data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseExample">
+                Schedules
                 <div class="collapse" id="collapse5">
-                        <li><a href="{{url('/wasteproducersschedule')}}">Waste Collection Schedule</a></li>
+                    <ul>
+                        <li><a href="{{url('/wasteproducersschedule')}}">Add </a></li>
+                        <li><a href="{{url('/wasteproducersschedulelist')}}">Waste Collection Schedule</a></li>
                         <li><a href="{{url('/recyclerschedule')}}">Recyclers</a></li>
+                    </ul>
                 </div>
-        </div>
+            </li>
+
+        </ul>
     </div>
 </div>

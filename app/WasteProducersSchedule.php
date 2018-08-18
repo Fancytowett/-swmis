@@ -26,6 +26,10 @@ class WasteProducersSchedule extends Model
             case 7:
                 return"Saturday";
         }
+    }
 
+    public function zone()
+    {
+        return $this->hasOne(Zone::class,'id','zone_id');
     }
 }
