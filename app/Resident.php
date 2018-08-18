@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resident extends Model
 {
+    protected $guarded=[];
     public function user()
     {
         return $this->hasOne(User::class,'id','user_id');

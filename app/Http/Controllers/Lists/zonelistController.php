@@ -14,6 +14,12 @@ class zonelistController extends Controller
         return view('zonelist.Zonelist')->withZones($zones);
     }
 
+public function search(Request $request){
+    $zones=Zone::all();
+   $searchData=$request->searchData;
+   $data=Zone::where('name','like','%'.$searchData.'%')->get();
+     return view('zonelist.zonelist',['data'=>$data,'id'=>$searchData])->withZones($zones);
 
+    }
 
 }

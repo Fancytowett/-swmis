@@ -12,7 +12,12 @@ use App\Http\Controllers\Controller;
 class ZoneadminController extends Controller
 {
     public function index(){
-        return view('landing.zoneadmin');
+
+        $user=auth()->user();
+        $zone=zoneadmin::where('user_id',$user->id)->first();
+        $companies=Company::with('user')->where('zone_id',$zone->zone_id)->get();
+
+        return view('landing.zoneadmin',['companies'=>$companies,'zone'=>$zone]);
 }
 public function  zoneadminprofile(){
     $zoneadmin=zoneadmin::where('user_id',auth()->user()->id)->first();
@@ -57,6 +62,16 @@ public function zonepayments(){
         $zone=zoneadmin::where('user_id',$user->id)->first();
         $companies=company::with('user')->where('zone_id',$zone->zone_id)->get();
         return view('landing.zoneadminlanding.zonecompanies',['companies'=>$companies]);
+    }
+    public  function  getprofile(Zoneadmin $zoneadmin){
+
+        $zoneadmin->load('user');
+        return response()->json($zoneadmin);
+    }
+    public  function updateprofile(Zoneadmin $zoneadmin,Request $request){
+        $zoneadmin->update(array_except($request->zoneadmin,'user'));
+        $zoneadmin->user->update($request->zoneadmin['user']);
+        return response()->json(['success'=>true]);
     }
 
 

@@ -40,4 +40,22 @@ class wasteproducersController extends Controller
             return view('landing.wasteproducerscompanyprofile',['company'=>$company])->withZones($zone);
         }
     }
+    public  function  residentgetprofile(Resident $resident){
+        $resident->load('user');
+        return response()->json($resident);
+    }
+    public  function residentupdateprofile(Resident $resident,Request $request){
+        $resident->update(array_except($request->resident,'user'));
+        $resident->user->update($request->resident['user']);
+        return response()->json(['success'=>true]);
+    }
+    public function getcompanyprofile(Company $company){
+        $company->load('user');
+        return response()->json($company);
+    }
+    public function updateprofile(Company $company ,Request $request){
+        $company->update(array_except($request->company,'user'));
+        $company->user->update($request->company['user']);
+        return response()->json(['success'=>true]);
+    }
 }

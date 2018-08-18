@@ -9,6 +9,7 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4 style="text-align: center;font-weight: bold"> RESIDENTS</h4>
+                    </div>
 
                     </div>
                     <div class="panel-body">
@@ -41,7 +42,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"aria-label="close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title text-left " id="myModalLabel" style="text-align: center;color: #3097D1 ">Company Details</h4>
+                                    <h4 class="modal-title text-left " id="myModalLabel" style="text-align: center;color: #3097D1 ">Resident    Details</h4>
                                 </div>
 
                                 <div class="modal-body">
@@ -79,5 +80,5 @@
             </div>
         </div>
 
-    </div>
+
 @endsection

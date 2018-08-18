@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
     <style>
         .adminnav  .panel{
             background-color: #010133;
@@ -78,6 +79,175 @@
         }
 
     </style>
+
+    <style>
+        .agentnav .panel{
+            background-color: #010133;
+            height: 100%; /* 100% Full-height */
+            width:23%;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+
+
+
+            padding-top: 60px; /* Place content 60px from the top */
+
+        }
+        .agentnav .panel  li{
+            list-style: none;
+
+
+        }
+
+        .agentnav .panel  li a{
+            display: block;
+            padding: 10px;
+            color:white;
+            text-transform: uppercase;
+            text-decoration: none;
+
+        }
+        .agentnav .panel  li:hover a {
+            background:navy ;
+            color:white;
+        }
+        .agentnav .panel-heading h4{
+            color:white;
+            text-align: center;
+        }
+        .panel-heading a:hover{
+            color: white;
+        }
+        .recyclernav  .panel{
+            background-color: #010133;
+            height: 100%; /* 100% Full-height */
+            width:23%;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            font-family:sans-serif;
+
+            box-shadow: 0 2px 100px;
+
+
+
+            padding-top: 60px; /* Place content 60px from the top */
+
+        }
+        .recyclernav .panel  li{
+            list-style: none;
+
+
+
+        }
+
+        .recyclernav .panel  li a{
+            display: block;
+            padding: 10px;
+            color:white;
+            text-transform: uppercase;
+            text-decoration: none;
+
+        }
+        .recyclernav .panel  li:hover a {
+            background:navy ;
+            color:white;
+        }
+        .recyclernav h4{
+            color:white;
+            text-align: center;
+        }
+        .recyclernav .panel li:hover {
+            color: white;
+            background:lavender;
+        }
+        .wasteproducersnav  .panel{
+            background-color: #010133;
+            height: 100%; /* 100% Full-height */
+            width:23%;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            font-family:sans-serif;
+
+            box-shadow: 0 2px 100px;
+
+
+
+            padding-top: 60px; /* Place content 60px from the top */
+
+        }
+        .wasteproducersnav .panel  li{
+            list-style: none;
+
+
+
+        }
+
+        .wasteproducersnav .panel  li a{
+            display: block;
+            padding: 10px;
+            color:white;
+            text-transform: uppercase;
+            text-decoration: none;
+
+        }
+        .wasteproducersnav .panel  li:hover a {
+            background:navy ;
+            color:white;
+        }
+        .wasteproducersnav .panel h4{
+            color:white;
+            text-align: center;
+        }
+
+        .zoneadminnav  .panel{
+            background-color: #010133;
+            height: 100%; /* 100% Full-height */
+            width:23%;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            font-family:sans-serif;
+
+            box-shadow: 0 2px 100px;
+
+
+
+            padding-top: 60px; /* Place content 60px from the top */
+
+        }
+        .zoneadminnav .panel-body  li{
+            list-style: none;
+            padding: 10px;
+        }
+
+        .zoneadminnav .panel-body  li a{
+             color:white;
+            text-transform: uppercase;
+            text-decoration: none;
+
+        }
+        .zoneadminnav .panel-body  li:hover  {
+            background:navy ;
+            color:white;
+        }
+        .zoneadminnav .panel-heading h4{
+            color:white;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: "Times New Roman";
+        }
+
+
+
+
+    </style>
 </head>
 <body>
     <div id="appf">
@@ -97,6 +267,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -111,6 +282,7 @@
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
+
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -146,6 +318,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     @yield('after-scripts')
+    @yield('javascripts')
 </body>
 </html>

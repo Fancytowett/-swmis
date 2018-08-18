@@ -48,7 +48,7 @@ class LoginController extends Controller
             case 2:
                 return redirect('zoneadminlanding');
             case 3:
-                return redirect('wasteproducerlanding');
+                return redirect('wasteproducerslanding');
             case 4:
                 return redirect('recyclerlanding');
 

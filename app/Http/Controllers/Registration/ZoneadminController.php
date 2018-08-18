@@ -45,11 +45,11 @@ class ZoneadminController extends Controller
         return redirect()->back()->withStatus('record deleted');
 
     }
-    public function  update(Request $request ,$id){
-
-        $zoneadmin = Zoneadmin::find($id);
-        User::find($zoneadmin->user_id);
-        $zoneadmin->update($request->all());
-        return redirect()->back();
-    }
+//    public function  update(Request $request ,$id){
+//
+//        $zoneadmin = Zoneadmin::find($id);
+//        User::find($zoneadmin->user_id);
+//        $zoneadmin->update($request->all());
+//        return redirect()->back();
+//    }
 }

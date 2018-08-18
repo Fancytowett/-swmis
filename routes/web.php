@@ -73,7 +73,7 @@ Route::group(['namespace'=>'Registration'],function(){
     Route::get('/zoneadmin','ZoneadminController@regzoneadmin');
 
     Route::post('/zoneadmin/save','ZoneadminController@store');
-    Route::post('/zoneadmin/update/{id}','ZoneadminController@update');
+
     Route::get('zoneadmin/delete/{id}','ZoneadminController@destroy');
 
     Route::get('/links','RegisterlinkController@registerlink');
@@ -90,6 +90,7 @@ Route::group(['namespace'=>'Lists'],function(){
     Route::get('/zoneadminlist','ZoneadminlistController@index');
     Route::get('/zonelists','zonelistController@index');
     Route::get('/deletehome','zonelistController@delete');
+    Route::get('/search','zonelistController@search');
 
 });
 //Route::group(['namespace'=>'Zonelist'],function(){
@@ -97,6 +98,7 @@ Route::group(['namespace'=>'Lists'],function(){
 //    Route::get('/zonelist','ZonelistController@index');
 
 //});
+
 
 Route::group(['namespace'=>'Landing'],function() {
 
@@ -117,6 +119,14 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/agentprofile','AgentController@profile');
     Route::get('/agentprofile/{agent}/get','AgentController@getProfile')->name('agent.profile.get');
     Route::post('/agentprofile/{agent}/update','AgentController@updateProfile')->name('agent.profile.update');
+    Route::get('/residentprofile/{resident}/get','wasteproducersController@tresidentgetProfile')->name('resident.profile.get');
+    Route::post('/residentprofile/{resident}/update','wasteproducersController@residentupdateProfile')->name('resident.profile.update');
+    Route::get('/recyclerprofile/{recycler}/get','RecyclerController@getProfile')->name('recycler.profile.get');
+    Route::post('/recyclerprofile/{recycler}/update','RecyclerController@updateProfile')->name('recycler.profile.update');
+    Route::get('/companyprofile/{company}/get','wasteproducersController@getcompanyprofile')->name('company.profile.get');
+    Route::post('/companyprofile/{company}/update','wasteproducersController@updateprofile')->name('company.profile.update');
+    Route::get('/zoneadminprofile/{zoneadmin}/get','ZoneadminController@getprofile')->name('zoneadmin.profile.get');
+    Route::post('/zoneadminprofile/{zoneadmin}/update','ZoneadminController@updateprofile')->name('zoneadmin.profile.update');
 
 
     Route::get('/zoneadminprofile','ZoneadminController@zoneadminprofile');
@@ -128,5 +138,13 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/zonesagentslist','ZoneadminController@listzoneagents');
     Route::get('/zonesresidentslist','ZoneadminController@listzoneresidents');
     Route::get('/zonescompanieslist','ZoneadminController@listzonecompanies');
+
+});
+Route::group(['namespace'=>'Schedule'], function(){
+    Route::get('/wasteproducersschedule','AdscheduleController@Wasteproducersschedule');
+    Route::post('/wasteproducersschedule/save','AdscheduleController@saveschedule');
+    Route::get('/wasteproducersschedulelist','AdscheduleController@wasteproducersschedulelist');
+
+
 
 });

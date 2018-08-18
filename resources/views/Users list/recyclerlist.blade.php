@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
 @section('content')
     <div class="container-fluid" id="recyclerlist">
         <div class="row">
@@ -20,7 +23,7 @@
                         <center><h4>RECYCLERS LIST</h4></center>
                     </div>
 
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="datatable">
                     <thead>
                     <tr class="alert-danger">
                         <th>USER ID</th>
@@ -31,6 +34,8 @@
                         <th>ACTION</th>
 
                     </tr>
+                    </thead>
+                        <tbody>
                     @foreach($recyclers as $recycler)
                     <tr>
 
@@ -46,6 +51,7 @@
                     </td>
                     </tr>
                     @endforeach
+                        </tbody>
 
                 </table>
                 </div>
@@ -132,5 +138,14 @@
                 }
             }
         })
+    </script>
+@endsection
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
+
+        });
     </script>
 @endsection
