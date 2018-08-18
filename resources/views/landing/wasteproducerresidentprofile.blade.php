@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid" id="resident-profile">
         <div class="row">
             <div class="col-md-3">
                 @include('landing.wasteproducersnav')
@@ -50,7 +50,7 @@
 
                                 <tr>
                                     <td></td><br>
-                                    <td> <button class="btn btn-info" data-target="#edit" data-toggle="modal">UPDATE</button></td>
+                                    <td> <button class="btn btn-info" @click="editResident()">UPDATE</button></td>
 
                                 </tr>
                             </table>
@@ -63,41 +63,39 @@
                                         <button type="button" class="close" data-dismiss="modal"aria-label="close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title text-left  " id="myModalLabel" style="text-align: center;color: #3097D1 ">UPDATE PROFILE</h4>
                                     </div>
-                                    <form action="{{url('/zones/update')}}" method="post">
-                                        {{csrf_field()}}
-                                        {{method_field('patch')}}
+
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="Name" style="color:#3097D1">Name:</label>
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+                                                <input type="text" v-model="resident.user.name" class="form-control" name="name" id="name" placeholder="Enter name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="phone " style="color:#3097D1">Phone:</label>
-                                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                                                <input type="text" v-model="resident.phone" class="form-control" name="phone" id="phone" placeholder="Enter phone">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Email " style="color:#3097D1">Email:</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                                <input type="email" v-model="resident.user.email" class="form-control" name="email" id="email" placeholder="Enter email">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="Name" style="color:#3097D1">Zone Name:</label>
-                                                <select class="form-control" name="zone_id">
-                                                    @foreach($zones as $zone)
-                                                        <option value="{{$zone->id}}">{{$zone->name}}</option>
-                                                    @endforeach
+                                            {{--<div class="form-group">--}}
+                                                {{--<label for="Name" style="color:#3097D1">Zone Name:</label>--}}
+                                                {{--<select class="form-control" name="zone_id">--}}
+                                                    {{--@foreach($zones as $zone)--}}
+                                                        {{--<option value="{{$zone->id}}">{{$zone->name}}</option>--}}
+                                                    {{--@endforeach--}}
 
-                                                </select>
-                                            </div>
+                                                {{--</select>--}}
+                                            {{--</div>--}}
                                             <div class="form-group">
                                                 <label for="Type of  waste" style="color:#3097D1">Type of waste:</label>
-                                                <select class="form-control" name="waste_type">
+                                                <select  v-model="resident.waste_type" class="form-control" name="waste_type">
                                                     <option value="1">Disposable</option>
                                                     <option value="2">Recyclable</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="period" style="color:#3097D1">Period:</label>
+                                                <label for="period" v-model="resident.period_name" style="color:#3097D1">Period:</label>
                                                 <select class="form-control" name="period">
                                                     <option value="1">Daily</option>
                                                     <option value="2">Weekly</option>
@@ -108,9 +106,9 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-dark" data-dismiss="modal">No,Cancel</button>
-                                            <button type="submit"  class="btn btn-primary">Update</button>
+                                            <button  @click="updateResident" class="btn btn-primary">Update</button>
                                         </div>
-                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -122,4 +120,39 @@
             </div>
         </div>
     </div>
+@endsection
+@section('after-scripts')
+    <script>
+        let nn = "";
+        window.residentprofile = new Vue({
+            el:'#recycler-profile',
+            data:{
+                recycler:{
+                    user:{}
+                }
+            },
+            methods:{
+                editResident:function(){
+                    axios.get('{{route('resident.profile.get', $resident)}}')
+                        .then(res=>{
+                            this.resident = res.data;
+                            $('#edit').modal('show');
+                        })
+                        .catch(err=>{
+                            alert('An error occured.Try again!');
+                        });
+                },
+                updateResident:function(){
+                    axios.post('{{route('resident.profile.update',$resident)}}', {resident:this.resident})
+                        .then(res=>{
+                            $('#edit').modal('hide');
+                            window.location.reload();
+                        })
+                        .catch(err=>{
+                            alert('An error occured.Try again!');
+                        });
+                }
+            }
+        });
+    </script>
 @endsection

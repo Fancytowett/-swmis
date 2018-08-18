@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -9,10 +12,11 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4 style="text-align: center;font-weight: bold">ZONE AGENTS</h4>
+                    </div>
 
                     </div>
                     <div class="panel-body">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover table-striped" id="datatable">
                             <thead class="alert-danger">
                             <tr >
                                 <th>Name</th>
@@ -45,7 +49,7 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <table class="table table-dark">
+                                    <table class="table table-dark" id="datatable">
                                         <tr>
                                             <td>Name:</td>
                                             <td>{{$agent->user->name}}</td>
@@ -80,5 +84,14 @@
             </div>
         </div>
 
-    </div>
+
    @endsection
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
+
+        });
+    </script>
+@endsection

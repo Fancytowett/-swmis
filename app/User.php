@@ -27,5 +27,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function resident()
+    {
+        return $this->hasOne(Resident::class,'user_id','id');
+    }
 
 }

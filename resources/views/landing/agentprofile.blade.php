@@ -9,10 +9,10 @@
             <div class="col-md-6 col-md-offset-2">
                 <div class="panel panel-info" style="margin-top: 70px;">
                     <div class="panel-heading">
-                      <h3 style="color: #3097D1;">PROFILE</h3>
+                      <h3 style="color: #3097D1;text-align: center;">PROFILE</h3>
                 </div>
                     <div class="panel-body">
-                        <table class="table">
+                        <table class="table table-hover">
                             <tr>
                                 <td>Name</td>
                                 <td>{{$agent->user->name}}</td>
@@ -77,6 +77,7 @@
 
 @section('after-scripts')
     <script>
+        let nn = "";
       window.agentProfile = new Vue({
           el:'#agent-profile',
           data:{

@@ -20,6 +20,18 @@ class RecyclerController extends Controller
         return view('landing.recyclerprofile',['recycler'=>$recycler])->withZones($zone);
 
     }
+    public  function getprofile(Recycler $recycler){
+         $recycler->load('user');
+         return response()->json($recycler);
+
+    }
+    public function  updateprofile( Recycler $recycler, Request $request){
+        $recycler->update(array_except($request->recycler,'user'));
+        $recycler->user->update($request->recycler['user']);
+        return response()->json(['success'=>true]);
+
+
+    }
 
 
 }

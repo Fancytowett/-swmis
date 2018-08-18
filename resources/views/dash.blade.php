@@ -38,17 +38,18 @@
 
             <div class="col-md-4 ">
                <div class="panel panel-default" style="height: 250px;width:300px;background-color:#3097D1; ">
-                <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >ZONES</h3>
+                   <a href="{{url('/zonelists')}}"><h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >   {{\App\Zone::all()->count()}}  <br>  ZONES</h3></a>
+                <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >{{\App\Zone::all()->count()}}ZONES</h3>
                </div>
             </div>
         <div class="col-md-4">
             <div class="panel panel-default" style="height: 250px;width:300px;background-color:#3097D1; ">
-                <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 120px;color:white;font-family: Times New Roman;" >ZONEADMINS</h3>
+                <a href="{{url('/zoneadminlist')}}"><h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 120px;color:white;font-family: Times New Roman;" >  {{\App\Zoneadmin::all()->count()}}  ZONEADMINS</h3></a>
             </div>
         </div>
         <div class="col-md-4">
             <div class="panel panel-default" style="height: 250px;width:300px;background-color:#3097D1; ">
-                <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;"  >AGENTS</h3>
+                <a href="{{url('agentlist')}}"><h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;"  >  {{\App\Agent::all()->count()}}  AGENTS</h3></a>
             </div>
         </div>
 
@@ -57,19 +58,19 @@
     <div class="row">
         <div class="col-md-4">
             <div class="panel-panel-default" style="height: 250px;width:300px;background-color:#3097D1; ">
-                <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >RESIDENTS</h3>
+                <a href="{{url('residentlist')}}"><h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >  {{\App\Resident::all()->count()}}  RESIDENTS</h3></a>
             </div>
         </div>
         <div class="col-md-4">
             <div class="panel-panel-default" style="height: 250px;width:300px;background-color:#3097D1; ">
-                <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >COMPANIES</h3>
+              <a href="{{url('/companylist')}}" > <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >  {{\App\Company::all()->count()}}  COMPANIES</h3></a>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="panel-panel-default" style="height: 250px;width:300px;background-color:#3097D1; ">
 
-               <center> <h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" >RECYCLERS</h3></center>
+                <a href="{{url('recyclerlist')}}"><h3 style="padding-bottom:100px;padding-top: 100px;padding-left:100px ;padding-right: 100px;color:white;font-family: Times New Roman;" > {{\App\Recycler::all()->count()}}  RECYCLERS</h3></a>
             </div>
         <br><br>
         </div>

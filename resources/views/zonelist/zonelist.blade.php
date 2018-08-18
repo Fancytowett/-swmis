@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    @endsection
 @section('content')
     <div class="container-fluid" id="zonelist">
         <div class="row">
@@ -7,18 +10,28 @@
 
             </div>
             <div class="col-md-9">
-                <div class="well well-sm" style="background: #3097D1;">
+                <div class="well well-sm" style="background: #3097D1;margin-top: 60px">
 
                     <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
+                    {{--<div class="row">--}}
+                    {{--<div class="col-md-9"></div>--}}
+{{--.                    <div class="col-md-3">--}}
+                    {{--<form action="{{url('search ')}}" method="get">--}}
+                        {{--<input type="text"  class="form-control" name="searchData"/>--}}
+                        {{--<i class="fa fa-search"></i>--}}
+                    {{--</form>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                 </div>
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4>ZONES LIST</h4>
                     </div>
                     <div class="panel-body">
-                        <table class="table table-hover">
+                        <table class="table " id="datatable">
                             <thead>
                             <tr class="alert-danger">
+
                                 <th> ID</th>
                                 <th>NAME</th>
                                 <th>NO. OF RESIDENTS</th>
@@ -26,6 +39,7 @@
                                 <th>WASTE QUANTITY</th>
                                 <th>EDIT RECORD</th>
                                 <th>DELETE RECORD</th>
+
                             </tr>
                             </thead>
                             <tbody>
@@ -33,8 +47,8 @@
                                 <tr>
                                     <td>{{$zone->id}}</td>
                                     <td>{{$zone->name}}</td>
-                                    <td>no.of residents</td>
-                                    <td>no. of companies</td>
+                                    <td>{{\App\Resident::where('zone_id',$zone->id)->count()}}</td>
+                                    <td>{{\App\Company::where('zone_id',$zone->id)->count()}}</td>
                                     <td>Amount of waste</td>
                                     <td>
                                         <button class= "btn btn-info" data-target="#edit" data-toggle="modal"> |Edit|</button >
@@ -129,3 +143,12 @@
     </script>
 
     @endsection
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#datatable').DataTable();
+        
+    });
+</script>
+@endsection

@@ -29,7 +29,7 @@
                                     <td>{{$resident->user->email}}</td>
                                     <td>{{$resident->phone}}</td>
                                 </tr>
-                                @endif
+
                             @endforeach
                             </thead>
                         </table>

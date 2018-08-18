@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid" id="recycler-profile">
         <div class="row">
             <div class="col-md-3">
                 @include('landing.recyclernav')
@@ -37,7 +37,7 @@
                                     <td></td>
                                     <td>
 
-                                        <button class="btn btn-info"  data-toggle="modal"data-target="#edit" style="float:bottom">EDIT PROFILE</button>
+                                        <button class="btn btn-info" @click="editRecycler()" style="float:bottom">EDIT PROFILE</button>
                                     </td>
 
                                 </tr>
@@ -51,27 +51,25 @@
                                         <button type="button" class="close" data-dismiss="modal"aria-label="close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title text-left  " id="myModalLabel" style="text-align: center;color: #3097D1 ">UPDATE PROFILE</h4>
                                     </div>
-                                    <form action="{{url('/zones/update')}}" method="post">
-                                        {{csrf_field()}}
-                                        {{method_field('patch')}}
+
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label for="Name" style="color:#3097D1">Name:</label>
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+                                                <input type="text" class="form-control" v-model="recycler.user.name" name="name" id="name" placeholder="Enter name">
                                             </div>
                                             <div class="form-group">
                                                 <label for="phone " style="color:#3097D1">Phone:</label>
-                                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                                                <input type="text" v-model="recycler.phone" class="form-control" name="phone" id="phone" placeholder="Enter phone">
                                             </div>
                                             <div class="form-group">
                                                 <label for="Email " style="color:#3097D1">Email:</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                                <input type="email" v-model="recycler.user.email" class="form-control" name="email" id="email" placeholder="Enter email">
                                             </div></div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-dark" data-dismiss="modal">No,Cancel</button>
-                                            <button type="submit"  class="btn btn-primary">Update</button>
+                                            <button type="submit"  @click="updateRecycler" class="btn btn-primary">Update</button>
                                         </div>
-                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -83,3 +81,38 @@
         </div>
     </div>
     @endsection
+@section('after-scripts')
+    <script>
+        let nn = "";
+        window.recyclerprofile = new Vue({
+            el:'#recycler-profile',
+            data:{
+                recycler:{
+                    user:{}
+                }
+            },
+            methods:{
+                editRecycler:function(){
+                    axios.get('{{route('recycler.profile.get', $recycler)}}')
+                        .then(res=>{
+                            this.recycler = res.data;
+                            $('#edit').modal('show');
+                        })
+                        .catch(err=>{
+                            alert('An error occured.Try again!');
+                        });
+                },
+                updateRecycler:function(){
+                    axios.post('{{route('recycler.profile.update',$recycler)}}', {recycler:this.recycler})
+                        .then(res=>{
+                            $('#edit').modal('hide');
+                            window.location.reload();
+                        })
+                        .catch(err=>{
+                            alert('An error occured.Try again!');
+                        });
+                }
+            }
+        });
+    </script>
+@endsection

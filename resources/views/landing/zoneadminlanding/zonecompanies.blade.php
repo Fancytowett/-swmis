@@ -9,6 +9,7 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4 style="text-align: center;font-weight: bold">ZONE COMPANIES</h4>
+                    </div>
 
                     </div>
                     <div class="panel-body">
@@ -76,7 +77,7 @@
             </div>
         </div>
 
-    </div>
+
 @endsection
 <script>
 $('#edit').on('show.bs.modal',function(event){

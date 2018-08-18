@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
 @section('content')
     <div class="container-fluid" id="agentlist">
         <div class="row">
@@ -26,7 +29,7 @@
                 </div>
                 <div class="panel-body">
 
-                <table class="table table-hover">
+                <table class="table table-hover" id="datatable">
                     <thead>
                     <tr class="alert-danger">
                         <th>USER ID</th>
@@ -86,7 +89,7 @@
                     <h4 class="modal-title text-left " id="myModalLabel"style="text-align: center;font-weight: bold;">DETAILS</h4>
                 </div>
                 <div class="modal-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="datatable">
                         <tr>
                             <th>USER ID</th>
                             <td>{{$agent->id}}</td>
@@ -143,5 +146,14 @@
                 }
             }
         })
+    </script>
+@endsection
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
+
+        });
     </script>
 @endsection
