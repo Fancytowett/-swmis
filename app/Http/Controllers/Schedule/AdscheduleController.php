@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Schedule;
 
 use App\Agent;
-use App\agentsCollecting;
+use App\AgentsCollecting;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\wasteProducersSchedule;
+use App\WasteProducersSchedule;
 use App\Zone;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,10 +16,13 @@ class AdscheduleController extends Controller
     public function wasteproducersschedule(){
         $zone=Zone::all();
         $agent=Agent::with('user')->get();
-        Return view('Adschedules.Wasteproducersschedule')->withZones($zone)->withAgents($agent);
+
+        Return view('adschedules.wasteproducersschedule')
+            ->withZones($zone)
+            ->withAgents($agent);
     }
- public function saveschedule( Request $request ){
-//     var_dump($request->all());
+
+    public function saveschedule( Request $request ){
          $wasteproducersschedule= new WasteProducersSchedule();
          $wasteproducersschedule->date= Carbon::today();
          $wasteproducersschedule->day=$request->input('day');
@@ -27,33 +30,29 @@ class AdscheduleController extends Controller
          $wasteproducersschedule->ftime=$request->input('ftime');
          $wasteproducersschedule->zone_id=$request->input('zone_id');
          $wasteproducersschedule->save();
-//     var_dump($request->agents);
-     if($wasteproducersschedule){
-         $agents = $request->agents;
-         foreach ($agents as $k=>$agent){
-             AgentsCollecting::create([
-                 'schedule_id' => $wasteproducersschedule->id,
-                 'agent_id' => $agent
-             ]);
+
+         if($wasteproducersschedule){
+             $agents = $request->agents;
+             foreach ($agents as $k=>$agent){
+                 AgentsCollecting::create([
+                     'schedule_id' => $wasteproducersschedule->id,
+                     'agent_id' => $agent
+                 ]);
+             }
          }
-     }
-     return redirect()->back();
- }
- public function wasteproducersschedulelist(){
 
-       if( $schedule=WasteProducersSchedule::where('zone_id',auth()->user()->resident->zone_id)->get())
-     {
-         return view('Adschedules.wasteproducersschedulelists')->withSchedules($schedule);
+         return redirect()->back();
      }
-       else{
-          $schedule=WasteProducersSchedule::where('zone_id' ,auth()->user()->company->zone_id)->get();
-         return view('Adschedules.wasteproducersschedulelists')->withSchedules($schedule);
 
-     }
- }
- //Waster producter...
-      
-//    WasteProducersSchedule::where(['zone_id'=>auth()->user()->resident->zone_id])->get();
-//    WasteProducersSchedule::where(['zone_id'=>auth()->user()->company->zone_id])->get();
-
+    public function wasteproducersschedulelist(){
+//         if( $schedule=WasteProducersSchedule::where('zone_id',auth()->user()->resident->zone_id)->get())
+//         {
+//             return view('adschedules.wasteproducersschedulelists')->withSchedules($schedule);
+//         }else{
+//             $schedule=WasteProducersSchedule::where('zone_id' ,auth()->user()->company->zone_id)->get();
+//             return view('adschedules.wasteproducersschedulelists')->withSchedules($schedule);
+//         }
+        $schedules = WasteProducersSchedule::with('zone')->get();
+        return view('adschedules.wasteproducersschedulelists')->withSchedules($schedules);
+    }
 }

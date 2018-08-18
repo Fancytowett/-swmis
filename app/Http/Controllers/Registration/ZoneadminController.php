@@ -31,14 +31,11 @@ class ZoneadminController extends Controller
          $zoneadmin->user_id= $user->id;
          $zoneadmin->zone_id=$request->input('zone_id');
          $zoneadmin->phone=$request->input('phone');
-
          $zoneadmin->save();
      return redirect()->back()->withStatus('successfully saved');
-
     }
     public function destroy($id)
     {
-
         $zadmin = Zoneadmin::find($id);
         User::find($zadmin->user_id)->delete();
         $zadmin->delete();

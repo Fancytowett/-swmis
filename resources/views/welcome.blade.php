@@ -76,6 +76,12 @@
 
             }
 
+            header.masthead {
+                background-image:url("{{asset('images/header.jpg')}}");
+            }
+            #mainNav {
+                background-color: #33b5e5 !important;
+            }
 
         </style>
     </head>
@@ -139,10 +145,10 @@
 
 
                 <header class="masthead text-center text-white d-flex" >
-                    <div class="container my-auto" style="background-image: url('../images/header.jpg')">
+                    <div class="container my-auto">
                         <div class="row">
                             <div class="col-lg-10 mx-auto">
-                                <h1 style="color: black" class="text-uppercase">
+                                <h1 style="color: white" class="text-uppercase">
                                     <strong >Get best waste collection services and get recyclabe waste</strong>
                                 </h1>
                                 <hr>
@@ -152,24 +158,9 @@
                                 <a class="btn btn-info btn-xl js-scroll-trigger" href="#about">Find Out More</a>
                             </div>
                         </div>
+                </div>
+                </header>
 
-                </header>
-                <header class="masthead text-center text-white d-flex">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-10 mx-auto">
-                                <h1 class="text-uppercase">
-                                    <strong></strong>
-                                </h1>
-                                <hr>
-                            </div>
-                            <div class="col-lg-8 mx-auto">
-                                <p class="text-faded mb-5"> Get best waste collection services and get recyclabe waste</p>
-                                <a class="btn btn-info btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                            </div>
-                        </div>
-                    </div>
-                </header>
                 <section class="bg-info" id="about" style="height:400px;padding-top: 50px;padding-bottom: 50px;">
                     <div class="container-fluid">
                         <div class="row">
@@ -236,7 +227,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-6 offset-3">
                                 <div class="card ">
                                     <div class="card-heading bg-info">
                                         <h4 style="padding: 20px">CONTACT FORM</h4>

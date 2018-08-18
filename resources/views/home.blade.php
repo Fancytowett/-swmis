@@ -7,13 +7,8 @@
             @include('adminnav')
         </div>
         <div class="col-md-9">
-            <div class="row">
-           @include('dash')
-            </div>
-            <div class="row">
-
-                    @include('payment')
-            </div>
+            @include('dash')
+{{--            @include('payment')--}}
         </div>
     </div>
 </div>

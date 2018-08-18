@@ -1,5 +1,9 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Headers: content-type,x-xsrf-token, X-Request-Signature');
 
+Route::resource('/mnet/sms/gateway', 'GatewayAPI');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,9 +92,9 @@ Route::group(['namespace'=>'Lists'],function(){
     Route::get('/agentlist','agentlistController@index');
     Route::get('/recyclerlist','RecyclerlistController@index');
     Route::get('/zoneadminlist','ZoneadminlistController@index');
-    Route::get('/zonelists','zonelistController@index');
-    Route::get('/deletehome','zonelistController@delete');
-    Route::get('/search','zonelistController@search');
+    Route::get('/zonelists','ZoneListController@index');
+    Route::get('/deletehome','ZoneListController@delete');
+    Route::get('/search','ZoneListController@search');
 
 });
 //Route::group(['namespace'=>'Zonelist'],function(){
@@ -144,7 +148,5 @@ Route::group(['namespace'=>'Schedule'], function(){
     Route::get('/wasteproducersschedule','AdscheduleController@Wasteproducersschedule');
     Route::post('/wasteproducersschedule/save','AdscheduleController@saveschedule');
     Route::get('/wasteproducersschedulelist','AdscheduleController@wasteproducersschedulelist');
-
-
 
 });
