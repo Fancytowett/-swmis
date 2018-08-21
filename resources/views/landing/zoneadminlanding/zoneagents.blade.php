@@ -14,10 +14,9 @@
                         <h4 style="text-align: center;font-weight: bold">ZONE AGENTS</h4>
                     </div>
 
-                    </div>
                     <div class="panel-body">
                         <table class="table table-hover table-striped" id="datatable">
-                            <thead class="alert-danger">
+                            <thead >
                             <tr >
                                 <th>Name</th>
                                 <th>Phone</th>
@@ -83,6 +82,7 @@
 
             </div>
         </div>
+    </div>
 
 
    @endsection

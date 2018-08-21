@@ -34,12 +34,13 @@ class PaymentHelper
 
     public function process($input)
     {
-        if(!PaymentConfirmation::query()->where(['trans_id'=>$input['trans_id']])->exists()){
-            DB::transaction(function() use ($input){
+        if (!PaymentConfirmation::query()->where(['trans_id' => $input['trans_id']])->exists()) {
+            DB::transaction(function () use ($input) {
                 #payment confirmation
                 $data = $input;
                 return PaymentConfirmation::query()->create($data);
             });
         }
     }
+
 }

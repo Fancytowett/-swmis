@@ -7,6 +7,9 @@
                 @include("adminnav")
             </div>
             <div class="col-md-7 col-md-offset-1">
+
+                <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a><br>
+
                <div class="panel panel-default">
                    <form role="form" method="post" action="{{url('/zones/save')}}">
                        <div class="panel-body">

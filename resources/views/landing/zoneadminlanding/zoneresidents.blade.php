@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -11,10 +14,10 @@
                         <h4 style="text-align: center;font-weight: bold"> RESIDENTS</h4>
                     </div>
 
-                    </div>
+
                     <div class="panel-body">
-                        <table class="table table-hover table-striped">
-                            <thead class="alert-danger">
+                        <table class="table table-hover table-striped" id="datatable">
+                            <thead >
                             <tr >
                                 <th>Name</th>
                                 <th>Phone</th>
@@ -37,7 +40,7 @@
                         </table>
 
                     </div>
-                    <div class="modal fade" id="view" style="margin-top: 150px;margin-left: 450px;margin-right: 400px;margin-bottom: 50px;">
+                    <div class="modal fade" id="view" style="margin-top: 50px;margin-left: 450px;margin-right: 400px;;">
                         <div class="modal-dialog-content" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -80,5 +83,14 @@
             </div>
         </div>
 
+    </div>
+    @endsection
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
 
+        });
+    </script>
 @endsection

@@ -14,4 +14,8 @@ class Agent extends Model
      public function zone(){
         return  $this->hasOne(Zone::class,'id','zone_id');
      }
+
+
+
+
 }

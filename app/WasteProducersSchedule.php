@@ -32,4 +32,9 @@ class WasteProducersSchedule extends Model
     {
         return $this->hasOne(Zone::class,'id','zone_id');
     }
+
+    public function agents()
+    {
+        return $this->hasMany(AgentsCollecting::class, 'schedule_id', 'id');
+    }
 }

@@ -1,4 +1,8 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -6,19 +10,14 @@
        @include('landing.zoneadminnav')
     </div>
         <div class="col-md-9">
-
-                <div class="well well-sm" style="background: #3097D1;margin-top: 70px;">
-
-                    <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
-                </div>
-
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3><center>ZONE AGENTS</center></h3>
+                        </div>
 
-                            <table class="table">
+                            <table class="table table-striped table-hover " id="datatable">
                                 <thead>
-                                <tr class="alert-danger">
+                                <tr>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -38,8 +37,14 @@
             </div>
         </div>
         </div>
-    </div>
+@endsection
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
 
-</div>
+        });
 
+    </script>
 @endsection

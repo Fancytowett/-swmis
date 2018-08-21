@@ -1,18 +1,20 @@
 
 <div class="zoneadminnav">
+
     <div class="panel">
-     <div class="panel-heading">
-         <h4>Zone Admin</h4>
-     </div>
+
+        <div class="panel-heading">
+            <h3 style="color: #33B5E5;font-family:Times New Roman;"><a href="{{url('/zoneadminlanding')}}"> Zone Admin Dashboard home</a></h3>
+
+       </div>
         <div class="panel-body">
-         {{--<ul/>--}}
+            {{--<ul/>--}}
             <li><a href="{{url('/zoneadminprofile')}}"> My Profile</a></li>
             <li> <a href="{{url('/zonesagentslist')}}">Zone Agents</a></li>
             <li> <a href="{{url('/zonesresidentslist')}}">Zone Residents</a></li>
             <li><a href="{{url('/zonescompanieslist')}}">Zone Companies</a></li>
-            <li><a href="{{url('/zoneagentsschedule')}}"> Agents Schedule</a></li>
-            <li><a href="{{url('zonewasteproducersschedule')}}">Waste producers schedule</a></li>
-            <li><a href="{{url('/zonepayments')}}">Zone Payments</a></li>
+            <li><a href="{{url('zonewasteproducersschedule')}}">Waste collection schedule</a></li>
+            <li><a href="{{url('/paymentsrecords')}}">Zone Payments</a></li>
          {{--</ul>--}}
         </div>
     </div>

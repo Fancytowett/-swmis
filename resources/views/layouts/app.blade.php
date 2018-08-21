@@ -9,8 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+   <link href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Styles -->
+   {{--<link href=" https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
     <style>
@@ -73,7 +74,7 @@
 
         }
         .adminnav .collapse li:hover a{
-            background: #B6B6B6;
+            background: #33B5E5  ;
 
             color:#3097D1;
         }
@@ -82,16 +83,14 @@
 
     <style>
         .agentnav .panel{
-            background-color: #010133;
+            background-color: white;
             height: 100%; /* 100% Full-height */
             width:23%;
             position: fixed; /* Stay in place */
             z-index: 1; /* Stay on top */
             top: 0; /* Stay at the top */
             left: 0;
-
-
-
+            box-shadow: 0 2px 10px;
             padding-top: 60px; /* Place content 60px from the top */
 
         }
@@ -104,24 +103,22 @@
         .agentnav .panel  li a{
             display: block;
             padding: 10px;
-            color:white;
+            color:blue;
             text-transform: uppercase;
             text-decoration: none;
 
         }
         .agentnav .panel  li:hover a {
-            background:navy ;
+            background: #33B5E5  ;
             color:white;
         }
         .agentnav .panel-heading h4{
             color:white;
             text-align: center;
         }
-        .panel-heading a:hover{
-            color: white;
-        }
-        .recyclernav  .panel{
-            background-color: #010133;
+
+          .recyclernav  .panel{
+            background-color: white;
             height: 100%; /* 100% Full-height */
             width:23%;
             position: fixed; /* Stay in place */
@@ -130,7 +127,7 @@
             left: 0;
             font-family:sans-serif;
 
-            box-shadow: 0 2px 100px;
+            box-shadow: 0 2px 10px;
 
 
 
@@ -153,16 +150,16 @@
 
         }
         .recyclernav .panel  li:hover a {
-            background:navy ;
+            background:#33B5E5 ;
             color:white;
         }
         .recyclernav h4{
-            color:white;
+            color: #33B5E5;
             text-align: center;
         }
         .recyclernav .panel li:hover {
-            color: white;
-            background:lavender;
+            color:white !important;
+
         }
         .wasteproducersnav  .panel{
             background-color: #010133;
@@ -206,7 +203,7 @@
         }
 
         .zoneadminnav  .panel{
-            background-color: #010133;
+            background-color:white;
             height: 100%; /* 100% Full-height */
             width:23%;
             position: fixed; /* Stay in place */
@@ -215,41 +212,46 @@
             left: 0;
             font-family:sans-serif;
 
-            box-shadow: 0 2px 100px;
+            box-shadow: 0 2px 10px;
+
 
 
 
             padding-top: 60px; /* Place content 60px from the top */
 
         }
+
+
+
+
         .zoneadminnav .panel-body  li{
             list-style: none;
             padding: 10px;
         }
 
         .zoneadminnav .panel-body  li a{
-             color:white;
+             color:#33B5E5;
             text-transform: uppercase;
             text-decoration: none;
 
         }
+        .zoneadminnav .panel-body  li:hover a{
+            color: white;
+
+        }
         .zoneadminnav .panel-body  li:hover  {
-            background:navy ;
-            color:white;
+            background-color:#33B5E5 ;
+            color:white !important;
         }
-        .zoneadminnav .panel-heading h4{
-            color:white;
-            text-transform: uppercase;
-            text-align: center;
-            font-family: "Times New Roman";
-        }
+
+
 
         #app .container,#app .container-fluid {
             top: 70px;
             position: relative;
         }
         .navbar-default {
-            background: #1a85c7 !important;
+            background: #33B5E5 !important;
         }
         .navbar-brand,.nav li a {
             color: #FFF !important;
@@ -262,6 +264,7 @@
         .custom-nav .list-group-item:hover {
             background-color: rgba(26, 133, 199, 0.36);
         }
+
     </style>
 </head>
 <body>

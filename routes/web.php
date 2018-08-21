@@ -33,8 +33,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/paymentsrecords', 'PaymentController@outputPayment');
 
 Route::group(['namespace'=>'Schedule'],function (){
+
 
     Route::get('/schedule','ResidentscheduleController@scheduleview');
 });
@@ -148,5 +150,14 @@ Route::group(['namespace'=>'Schedule'], function(){
     Route::get('/wasteproducersschedule','AdscheduleController@Wasteproducersschedule');
     Route::post('/wasteproducersschedule/save','AdscheduleController@saveschedule');
     Route::get('/wasteproducersschedulelist','AdscheduleController@wasteproducersschedulelist');
+    Route::get('/agentsschedule','AgentScheduleController@agentsschedule');
+    Route::get('/zonewasteproducersschedule','WasteproducersscheduleController@zonewasteproducersschedule');
+
+});
+Route::group(['namespace'=>'Mails'] , function(){
+
+
+    Route::get('contact_us', 'ContactUSController@contactUS');
+    Route::post('contact_us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
 
 });

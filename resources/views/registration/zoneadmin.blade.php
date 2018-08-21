@@ -8,23 +8,17 @@
 
             <div class="col-md-9">
                 <div class="row">
-                    <div class="well well-sm" style="background: #3097D1;margin-top: 50px;">
-
-                        <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
-                    </div>
-                </div>
-                <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="row">
                     <div class="col-md-12">
 
-                        <a href="{{url('/zoneadminlist')}}"><button class="btn btn-success"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                        <a href="{{url('/zoneadminlist')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                     </div>
                     </div>
 
-                    <div class="panel panel-primary">
+                    <div class="panel panel">
                     <div class="panel-heading">
-                        <center> <h1 style="color:white;">Zone admin</h1><b></b> </center>
+                        <center> <h1 style="color:#33B5E5;">Zone admin</h1><b></b> </center>
                     </div>
                     <div class="panel-body">
                         <form role="form" method="post" action="{{url('/zoneadmin/save')}}">

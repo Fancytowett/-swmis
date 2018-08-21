@@ -14,4 +14,7 @@ class Zoneadmin extends Model
     public function zone(){
         return $this->hasOne(Zone::class,'id','zone_id');
 }
+//public  function wasteProducersSchedule(){
+//        return $this->hasOne(WasteProducersSchedule::class,'id','zone_id');
+//}
 }

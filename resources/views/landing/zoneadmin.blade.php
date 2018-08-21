@@ -7,13 +7,10 @@
                 @include('landing.zoneadminnav')
             </div>
             <div class="col-md-9">
-                <div class="well well-sm" style="background: #3097D1;margin-top: 60px;">
 
-                    <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
-                </div>
-                <div class="panel panel-info">
+                <div class="bpanel panel-default">
                     <div class="panel-heading ">
-                        <h3 style="text-align: center">OVERVIEW</h3>
+                        <h3 style="text-align: center;color: #33B5E5">OVERVIEW</h3>
 
                     </div>
                     <div class="panel-body">
@@ -43,18 +40,19 @@
                         </div>
                     </div>
                 </div>
-                </div>
                     <div class="row">
 
                         <div class="col-md-6  col-md-offset-3">
-                            <div class="well" style="height:150px;background-color: #009901;color:white;opacity: 0.8;margin-left:100px;">
+                            <div class="well" >
 
-                                <center><h4 style="padding-top: 30px;padding-bottom: 50px;">AMOUNT OF WASTE</h4></center>
+                                <center><h4 style="padding-top: 30px;padding-bottom: 50px;background: lavender">AMOUNT OF WASTE</h4></center>
                             </div>
 
                         </div>
 
                     </div>
+                </div>
+
 
 
 

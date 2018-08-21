@@ -1,4 +1,4 @@
-<div class="panel panel-default">
+<div class="panel panel-default" >
     <div class="panel-heading">
         <h4>Dashboard</h4>
     </div>
@@ -33,7 +33,7 @@
             <li class="list-group-item"  data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
                 Agents
                 <div class="collapse" id="collapse3">
-                    <ul>
+                    <ul class="">
                         <li><a href="{{url('/agents/add')}}" > Add</a></li>
                         <li><a href="{{url('/agentlist')}}" > Agents</a></li>
                     </ul>
@@ -43,7 +43,7 @@
             <li class="list-group-item"  data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapseExample">
                 Waste Producers
                 <div class="collapse" id="collapse4">
-                    <ul>
+                    <ul class="">
                         <li><a href="{{url('/residentlist')}}">Residents</a></li>
                         <li><a href="{{url('/companylist')}}">Companies</a></li>
                     </ul>
@@ -52,12 +52,11 @@
 
             <li class="list-group-item"><a href="{{url('/recyclerlist')}}" >Recyclers</a></li>
             <li class="list-group-item"><a href="{{url('#')}}" >Amount of waste</a></li>
-            <li class="list-group-item"><a href="{{url('/payments')}}" >Payments</a></li>
-            <li class="list-group-item"><a href="{{url('#')}}" >Users</a></li>
+            <li class="list-group-item"><a href="{{url('/paymentsrecords')}}" >Payments</a></li>
             <li class="list-group-item"  data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseExample">
                 Schedules
                 <div class="collapse" id="collapse5">
-                    <ul>
+                    <ul class="list-group">
                         <li><a href="{{url('/wasteproducersschedule')}}">Add </a></li>
                         <li><a href="{{url('/wasteproducersschedulelist')}}">Waste Collection Schedule</a></li>
                         <li><a href="{{url('/recyclerschedule')}}">Recyclers</a></li>

@@ -1,21 +1,20 @@
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <center><h3>Waste collection Schedule</h3></center>
+@extends('layouts.app')
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                @include('adminnav')
+            </div>
+            <div class="col-md-9">
+                <div class="well well-sm" style="background: #3097D1;margin:70px;">
 
-        <table class=" table table-hover table-striped">
+                    <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
+                </div>
 
-            <thead>
-            <tr class="alert-danger">
-                <th style="font-size:17px;">ZONE</th>
-                <th style="font-size:17px;">PLACE</th>
-                <th style="font-size:17px;">DATE</th>
-                <th style="font-size:17px;">TIME</th>
-                <th style="font-size:17px;">AGENT</th>
-            </tr>
-            </thead>
-            <tr>
-
-            </tr>
-        </table>
+                @include('wastecollectionschedule')
+            </div>
+        </div>
     </div>
-    </div>
+@endsection
+
+

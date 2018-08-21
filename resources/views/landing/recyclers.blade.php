@@ -7,10 +7,7 @@
 
             </div>
             <div class="col-md-9">
-                <div class="well well-sm" style="background: #3097D1;margin-top: 50px">
 
-                    <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
-                </div>
                 <div class="panel panel-info">
                     <div class="panel-heading ">
                         <h3 style="text-align: center">OVERVIEW</h3>

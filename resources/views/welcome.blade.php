@@ -20,6 +20,7 @@
         <!-- Plugin CSS -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" rel="stylesheet">
 
+
         <!-- Custom styles for this template -->
         <link href="{{asset('css/css/creative.css')}}" rel="stylesheet" type="text/css">
 
@@ -93,7 +94,7 @@
                     {{--@auth--}}
                         {{--<a href="{{ url('/home') }}">Home</a>--}}
                     {{--@else--}}
-                        {{--<a href="{{ route('login') }}">Login</a>--}}
+                        {{--<a href="{{  route('login') }}">Login</a>--}}
                         {{--<a href="{{ route('register') }}">Register</a>--}}
                         {{--<a href="#"></a>--}}
                         {{--<a href="#about">About us</a>--}}
@@ -102,7 +103,7 @@
                         {{--<a href="#help">Help</a>--}}
                     {{--@endauth--}}
                 {{--</div>--}}
-         {{--/   @endif--}}
+           {{--@endif--}}
                 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                     <div class="container">
                         <a class="navbar-brand js-scroll-trigger" href="#page-top">Swims</a>
@@ -166,6 +167,11 @@
                         <div class="row">
                             <div class="col-lg-8 mx-auto text-center">
                                 <h2 class="section-heading text-white">We've got what you need!</h2>
+
+                                <p style="color:white;font-family: 'Times New Roman';">This is Solid waste information Management system(SWIMS).This System belongs to Nairobi County.The County is divided to several zones for effectiveness and effeciency of our services.
+                                    We offer waste collection services in respective Zones to registered clients who maybe Residents or businesses.Recyclers who are also our main clients can check for available recyclable waste.
+                                    Services payments are paid through Mpesa.</p>
+
                                 <hr class="light my-4">
                                 <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
                             </div>
@@ -215,6 +221,71 @@
                         </div>
                     </div>
                 </section>
+        <section class="p-0" id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters popup-gallery">
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}">
+                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+
+                                    <div class="project-name">
+                                        Waste collection truck
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}">
+                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}">
+                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}g">
+                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                            <div class="portfolio-box-caption">
+                                <div class="portfolio-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
                 <section id="contact">
@@ -234,31 +305,7 @@
                                     </div>
                                     <div class="card-body">
 
-                                        <form action="" method="post" class="form-dark">
-                                            <div class="form-group">
-                                                <label for="First name">First Name:</label>
-                                                <input type="text" name="fname" class="form-control" placeholder="enter your first name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="Last  name">Last Name:</label>
-                                                <input type="text" name="lname" class="form-control" placeholder="enter your last name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="Email">Email:</label>
-                                                <input type="email" name="email" class="form-control" placeholder="enter your email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="Message">Message</label>
-                                               <textarea class="form-control" name=Message >
-
-                                               </textarea>
-                                            </div>
-                                            <div class="form-group">
-                                               <input type="submit" value="submit" name="submit" class="btn btn-info">
-                                            </div>
-
-
-                                        </form>
+                                        @include('Mails.contactus')
                                     </div>
                                 </div>
                             </div>
@@ -269,8 +316,27 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-8 mx-auto text-center">
-                                <p>links</p>
+
+                                <div class="col-md-4">
+                                    <span style="color:#33B5E5;">Contact us</span>
+                                    <span style="color:#33B5E5;">Telephone: 0202245334</span>
+                                    <span style="color:#33B5E5;">Email:swims@gmail.com</span>
+                                    <span style="color:#33B5E5;">Address:</span>
+                                    <span style="color:#33B5E5;">
+                                        Nairobi County.
+                                        P.O BOX 8400,
+                                         Kenya.
+                                    </span>
+                                </div>
+                                <div class="col-md-4 pull-right right">
+                                    <span> <a href=""><i class=" fa fa-facebook" style="font-size:24px;color:#33B5E5;"></i> </a></span>
+                                    <span><a href=""> <i class=" fa fa-twitter" style="font-size:24px;color:#33B5E5;"></i> </a></span>
+                                    <span><a href=""><i class=" fa fa-google-plus" style="font-size:24px;color:#33B5E5;"></i> </a></span>
+                                </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <span><p style="margin-left:600px;color:#33B5E5;"> &copy fancytowett2018</p></span>
                         </div>
                     </div>
                 </section>

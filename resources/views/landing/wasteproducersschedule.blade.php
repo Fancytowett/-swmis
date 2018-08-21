@@ -11,7 +11,7 @@
                     <h4 style="color:white;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
                 </div>
 
-                        @include('schedule.wastecollectionschedule')
+                        @include('schedule.wasteproducersschedule')
 
             </div>
             </div>

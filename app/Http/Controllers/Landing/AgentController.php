@@ -30,10 +30,7 @@ class AgentController extends Controller
 
     }
 
-    public  function  agentsschedule(){
-        return view('landing.agentsschedule');
 
-    }
 
     public function getProfile(Agent $agent)
     {

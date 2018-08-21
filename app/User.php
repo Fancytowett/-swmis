@@ -31,5 +31,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Resident::class,'user_id','id');
     }
+    public function agent()
+    {
+        return $this->hasOne(Agent::class,'user_id','id');
+            }
 
 }

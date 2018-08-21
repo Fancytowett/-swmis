@@ -5,42 +5,39 @@
         <div class="row">
            <div class="col-md-3">
                @include('landing.agentadminnav')
-           </div>
-            <div class="col-md-6 col-md-offset-2">
-                <div class="panel panel-info" style="margin-top: 70px;">
-                    <div class="panel-heading">
-                      <h3 style="color: #3097D1;text-align: center;">PROFILE</h3>
-                </div>
-                    <div class="panel-body">
-                        <table class="table table-hover">
-                            <tr>
-                                <td>Name</td>
-                                <td>{{$agent->user->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>Email</td>
-                                <td>{{$agent->user->email}}</td>
-                            </tr>
+            </div>
+                <div class="col-md-6 col-md-offset-2">
+                    <div class="panel panel-info" style="margin-top: 70px;">
+                        <div class="panel-heading">
+                          <h3 style="color: #3097D1;text-align: center;">PROFILE</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover">
+                                <tr>
+                                    <td>Name</td>
+                                    <td>{{$agent->user->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{$agent->user->email}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Phone Number:</td>
+                                   <td> {{$agent->phone}}</td>
+                                </tr>
+                                <tr>
+                                <td>Zone Allocated:</td>
+                                <td>{{$agent->zone->name}}</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <button class="btn btn-info" onclick="editAgent()">EDIT PROFILE</button>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td>Phone Number:</td>
-                               <td> {{$agent->phone}}</td>
-                            </tr>
-                            <tr>
-                            <td>Zone Allocated:</td>
-                            <td>{{$agent->zone->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                </td>
-                                <td>
-                                    <button class="btn btn-info" @click="editAgent()">EDIT PROFILE</button>
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
+                            </table>
+                        </div>
                     </div>
                 <div class="modal fade" id="edit" style="margin-top: 200px;margin-left: 700px;margin-right: 300px;margin-bottom: 50px;">
                         <div class="modal-dialog-content" role="document">
@@ -65,7 +62,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-dark" data-dismiss="modal">No,Cancel</button>
-                                    <button type="submit" @click="updateAgent"  class="btn btn-primary">Update</button>
+                                    <button type="submit" onclick="updateAgent"  class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </div>
