@@ -103,7 +103,7 @@
         .agentnav .panel  li a{
             display: block;
             padding: 10px;
-            color:blue;
+            color: #33B5E5;
             text-transform: uppercase;
             text-decoration: none;
 
@@ -144,25 +144,25 @@
         .recyclernav .panel  li a{
             display: block;
             padding: 10px;
-            color:white;
+            color:#33B5E5;
             text-transform: uppercase;
             text-decoration: none;
 
         }
         .recyclernav .panel  li:hover a {
             background:#33B5E5 ;
-            color:white;
+            color:white ;
         }
         .recyclernav h4{
             color: #33B5E5;
             text-align: center;
         }
-        .recyclernav .panel li:hover {
+        .recyclernav .panel li:hover a {
             color:white !important;
 
         }
         .wasteproducersnav  .panel{
-            background-color: #010133;
+            background-color: white;
             height: 100%; /* 100% Full-height */
             width:23%;
             position: fixed; /* Stay in place */
@@ -188,17 +188,17 @@
         .wasteproducersnav .panel  li a{
             display: block;
             padding: 10px;
-            color:white;
+            color:#33B5E5;
             text-transform: uppercase;
             text-decoration: none;
 
         }
         .wasteproducersnav .panel  li:hover a {
-            background:navy ;
+            background:#33B5E5 ;
             color:white;
         }
         .wasteproducersnav .panel h4{
-            color:white;
+            color:#33B5E5;
             text-align: center;
         }
 

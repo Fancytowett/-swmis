@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-12">
 
-                        <a href="{{url('/agentlist')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                        <a href="{{url('/agentlist')}}"><button class="btn btn-primary btn-xs"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                     </div>
                 </div>
                         <div class="panel panel-primary">

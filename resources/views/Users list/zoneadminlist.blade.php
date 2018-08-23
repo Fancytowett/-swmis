@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    @endsection
 @section('content')
     <div class="container-fluid" id="zoneadminlist">
         <div class="row">
@@ -10,8 +13,8 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{url('/zoneadmin')}}"><button class="btn btn-primary"style="float:right;"><b style="color:white;">ADD ZONE</b></button></a>
-                        <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><i class="i-fa-fa-left">BACK</i></button></a>
+                        <a href="{{url('/zoneadmin')}}"><button class="btn btn-primary btn-xs"style="float:right;"><b style="color:white;">ADD ZONE</b></button></a>
+                        <a href="{{url('/home')}}"><button class="btn btn-primary btn-xs"style="float:left;"><i class="i-fa-fa-left">BACK</i></button></a>
                     </div>
 
                 </div>
@@ -21,7 +24,7 @@
                     </div>
                     <div class="panel-body">
 
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="datatable">
                         <thead>
                         <tr>
                           <th>USER ID</th>
@@ -44,7 +47,7 @@
 
                             <td>{{$zoneadmin->zone->name}}</td>
                             <td>
-                                <button class="btn btn-info" data-target="#view{{$zoneadmin->id}}" data-toggle="modal">View</button>
+                                <button class="btn btn-info btn-xs" data-target="#view{{$zoneadmin->id}}" data-toggle="modal">View</button>
                                 <div class="modal fade" id="view{{$zoneadmin->id}}" style="margin-top: 200px;margin-left: 700px;margin-right: 250px;">
                                     <div class="modal-dialog-content" role="document">
                                         <div class="modal-content">
@@ -80,7 +83,7 @@
 
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-success " data-dismiss="modal">Cancel</button>
 
                                             </div>
                                         </div>
@@ -91,7 +94,7 @@
 
 
                             <td>
-                                <a onclick="deleteModal({{$zoneadmin->id}})" class=" btn btn-danger" >Delete</a>
+                                <a onclick="deleteModal({{$zoneadmin->id}})" class=" btn btn-danger btn-xs" >Delete</a>
 
                             </td>
 
@@ -128,6 +131,8 @@
 @endsection
 
 @section('after-scripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
     <script>
         function deleteModal(id){
             window.zoneadminlist.deleteModal(id);
@@ -155,6 +160,11 @@
                 }
             }
         })
+
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+
+        });
     </script>
 
 @endsection

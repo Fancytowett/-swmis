@@ -11,7 +11,7 @@
             <div class="col-md-9 ">
                 <div class="row">
                       <div class="col-md-12">
-                      <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                      <a href="{{url('/home')}}"><button class="btn btn-primary btn-xs"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                   </div>
                   </div>
                 <div class="panel panel-info">
@@ -40,7 +40,7 @@
                     <td>{{$recycler->user->email}}</td>
                     <td>{{$recycler->phone}}</td>
                         <td>
-                            <button class=" btn btn-info" data-target="#view{{$recycler->id}}" data-toggle="modal">View</button>
+                            <button class=" btn btn-info btn-xs" data-target="#view{{$recycler->id}}" data-toggle="modal">View</button>
                             <div class="modal modal-danger fade" id="view{{$recycler->id}}" style="margin-top: 200px;margin-left: 700px;margin-right: 250px;">
                                 <div class="modal-dialog-content" role="document">
                                     <div class="modal-content">
@@ -69,7 +69,7 @@
                                             </table>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-success " data-dismiss="modal">Cancel</button>
 
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                             </div>
                         </td>
                     <td>
-                        <a  onclick="deleteModal({{$recycler->id}})"  class=" btn btn-danger" >Delete</a>
+                        <a  onclick="deleteModal({{$recycler->id}})"  class=" btn btn-danger btn-xs" >Delete</a>
                     </td>
                     </tr>
                     @endforeach
@@ -102,7 +102,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">No,Cancel</button>
-                        <button onclick="deleteRecycler()" class="btn btn-warning">Yes,Delete</button>
+                        <button onclick="deleteRecycler()" class="btn btn-warning ">Yes,Delete</button>
                     </div>
                 </div>
             </div>

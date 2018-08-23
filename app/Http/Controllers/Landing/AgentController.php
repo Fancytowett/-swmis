@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Landing;
 
 
 use App\Agent;
+use App\Company;
 use App\Resident;
 use App\Zone;
 use App\Zoneadmin;
+
+
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -44,5 +47,29 @@ class AgentController extends Controller
         $agent->user->update($request->agent['user']);
         return response()->json(['success'=>true]);
     }
-
+    public function agentresidents(){
+        $user=auth()->user();
+        $zone=Agent::where('user_id',$user->id)->first();
+        $resident=Resident::with('user')->where('zone_id', $zone->zone_id)->get();
+        return view('landing.agentresidents')->withResidents($resident);
 }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function agentcompanies(){
+    $user=auth()->user();
+    $zone=Agent::where('user_id',$user->id)->first();
+    $company=Company::with('user')->where('zone_id',$zone->zone_id)->get();
+        return view('landing.agentcompanies')->withCompanies($company);
+}
+ public function agentresidentwasterecord(){
+        $resident=Resident::all();
+
+        return view('landing.agentresidentswasterecords')->withResidents($resident);
+ }
+    public function agentcompanywasterecord(){
+        $company=Company::all();
+        return view('landing.agentcompanywasterecords')->withCompanies($company);
+    }
+    }

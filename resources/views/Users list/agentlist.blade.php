@@ -15,8 +15,8 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{url('/agents/add')}}"><button class="btn btn-primary"style="float:right;"><b style="color:white;">ADD ZONE</b></button></a>
-                        <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                        <a href="{{url('/agents/add')}}"><button class="btn btn-primary btn-xs"style="float:right;"><b style="color:white;">ADD ZONE</b></button></a>
+                        <a href="{{url('/home')}}"><button class="btn btn-primary btn-xs"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                     </div>
 
                 </div>
@@ -48,7 +48,7 @@
                         <td>{{$agent->phone}}</td>
                         <td>{{$agent->zone->name}}</td>
                         <td>
-                            <button class="btn btn-info" data-target="#view{{$agent->id}}" data-toggle="modal">View</button>
+                            <button class="btn btn-info btn-xs" data-target="#view{{$agent->id}}" data-toggle="modal">View</button>
                             <div class="modal modal-danger fade" id="view{{$agent->id}}" style="margin-top: 200px;margin-left: 700px;margin-right: 250px;">
                                 <div class="modal-dialog-content" role="document">
                                     <div class="modal-content">
@@ -89,7 +89,7 @@
 
                         </td>
                         <td>
-                            <a  onclick="deleteModal({{$agent->id}})"  class=" btn btn-danger" style="float: right;size: auto;">Delete</a>
+                            <a  onclick="deleteModal({{$agent->id}})"  class=" btn btn-danger btn-xs" style="float: right;size: auto;">Delete</a>
                         </td>
                     </tr>
                    @endforeach

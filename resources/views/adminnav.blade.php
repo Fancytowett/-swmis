@@ -51,7 +51,8 @@
             </li>
 
             <li class="list-group-item"><a href="{{url('/recyclerlist')}}" >Recyclers</a></li>
-            <li class="list-group-item"><a href="{{url('#')}}" >Amount of waste</a></li>
+            <li class="list-group-item"><a href="{{url('/allavailablewaste')}}" >Waste Available</a></li>
+            <li class="list-group-item"><a href="{{url('adminviewwasterequests')}}" >Recyclable waste Requests</a></li>
             <li class="list-group-item"><a href="{{url('/paymentsrecords')}}" >Payments</a></li>
             <li class="list-group-item"  data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapseExample">
                 Schedules

@@ -1,4 +1,7 @@
 <?php
+
+use App\wastes;
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Headers: content-type,x-xsrf-token, X-Request-Signature');
@@ -23,6 +26,15 @@ Route::get('recyclerschedule',function (){
 });
 Route::get('wasteproducersschedule',function (){
     return view('wasteproducersschedule');
+});
+Route::get('allavailablewaste',function (){
+    $waste=Wastes::all();
+    return view('generalavailablewaste')->withWastes($waste);
+});
+Route::get('adminviewwasterequests',function (){
+
+    $requests=\App\Wasterequest::all();
+    return view('adminviewwasterequests')->withRequests($requests);
 });
 
 
@@ -110,11 +122,16 @@ Route::group(['namespace'=>'Landing'],function() {
 
 
     Route::get('/agentslanding','AgentController@index');
+    Route::get('/agentresidents','AgentController@agentresidents');
+    Route::get('/agentcompanies','AgentController@agentcompanies');
+    Route::get('/agentresidentwasterecord','AgentController@agentresidentwasterecord');
+    Route::get('/agentcompanywasterecord','AgentController@agentcompanywasterecord');
     Route::get('/agentsschedule','AgentController@agentsschedule');
     Route::get('/zoneadminlanding','ZoneadminController@index');
 
     Route::get('/recyclerlanding','RecyclerController@index');
     Route::get('/recyclerprofile','RecyclerController@profile');
+    Route::get('/recyclernots','RecyclerController@recyclernots');
 
     Route::get('/wasteproducerslanding','wasteproducersController@index');
     Route::get('/wasteproducerprofile','wasteproducersController@wasteproducerprofile');
@@ -145,6 +162,14 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/zonesresidentslist','ZoneadminController@listzoneresidents');
     Route::get('/zonescompanieslist','ZoneadminController@listzonecompanies');
 
+    Route::post ('/zonewastereport/save','ZoneadminController@zonewastereportsave');
+    Route::get('/zonewastereport','ZoneadminController@zonewastereport');
+    Route::get('/zonewastereportlist','ZoneadminController@zonewastereportlist');
+    Route::get('/recyclerviewwaste','RecyclerController@recyclerviewwaste');
+    Route::post('/recyclerrequestwastesave','RecyclerController@recylerwasterequestsave');
+    Route::get('/recyclerrequestwaste','RecyclerController@recyclerrequestwaste');
+
+
 });
 Route::group(['namespace'=>'Schedule'], function(){
     Route::get('/wasteproducersschedule','AdscheduleController@Wasteproducersschedule');
@@ -152,6 +177,8 @@ Route::group(['namespace'=>'Schedule'], function(){
     Route::get('/wasteproducersschedulelist','AdscheduleController@wasteproducersschedulelist');
     Route::get('/agentsschedule','AgentScheduleController@agentsschedule');
     Route::get('/zonewasteproducersschedule','WasteproducersscheduleController@zonewasteproducersschedule');
+    Route::get('/wasteproducersscheduleview','WasteproducersscheduleController@wasteproducersscheduleview');
+
 
 });
 Route::group(['namespace'=>'Mails'] , function(){

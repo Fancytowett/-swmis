@@ -6,8 +6,9 @@
                     @include('landing.agentadminnav')
             </div>
             <div class="col-md-9">
-                <div class="panelf panel-default">
+                <div class="panelf panel-info">
                     <div class="panel-heading">
+                        <h3 style="text-align: center">STATISTICS</h3>
 
                     </div>
                     <div class="panel-body">
@@ -16,7 +17,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <h2>{{\App\Resident::all()->count()}}</h2>
-                                        <span><a href="{{url('/residentlist')}}">Residents</a></span>
+                                        <span><a href="{{url('/agentresidents')}}">Residents</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -24,7 +25,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <h2>{{\App\Company::all()->count()}}</h2>
-                                        <span><a href="{{url('/companylist')}}">Companies</a></span>
+                                        <span><a href="{{url('/cagentompanies')}}">Companies</a></span>
                                     </div>
                                 </div>
                             </div>

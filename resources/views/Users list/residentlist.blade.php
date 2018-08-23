@@ -10,7 +10,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                            <a href="{{url('/home')}}"><button class="btn btn-primary btn-xs"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                         </div>
                     </div>
                 <div class="panel panel-info">
@@ -41,7 +41,7 @@
                             <td>{{$resident->zone->name}}</td>
                             <td>{{$resident->waste_type_name}}</td>
                             <td>{{$resident->period_name}}</td>
-                            <td> <button class="btn btn-info" data-toggle="modal" data-target="#view{{$resident->id}}" >View</button></td>
+                            <td> <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#view{{$resident->id}}" >View</button></td>
                             <div class="modal modal-danger fade" id="view{{$resident->id}}" style="margin-top: 100px;margin-left: 700px;margin-right: 250px;">
                                 <div class="modal-dialog-content" role="document">
                                     <div class="modal-content">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
 
-                            <td> <a  class=" btn btn-info" onclick="deleteModal({{$resident->id}})" style="float: right;size: auto;">Delete</a></td>
+                            <td> <a  class=" btn btn-info btn-xs" onclick="deleteModal({{$resident->id}})" style="float: right;size: auto;">Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

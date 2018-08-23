@@ -14,7 +14,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                        <a href="{{url('/home')}}"><button class="btn btn-primary btn-xs"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                     </div>
                 </div>
                 <div class="panel panel-info">
@@ -47,7 +47,7 @@
                         <td>{{$company->waste_type_name}}</td>
                         <td>{{$company->period_name}}</td>
                         <td>
-                            <button class="btn btn-info" data-target="#view{{$company->id}}" data-toggle="modal">View</button>
+                            <button class="btn btn-info btn-xs" data-target="#view{{$company->id}}" data-toggle="modal">View</button>
                             <div class="modal modal-danger fade" id="view{{$company->id}}" style="margin-top: 100px;margin-left: 700px;margin-right: 250px;">
                                 <div class="modal-dialog-content" role="document">
                                     <div class="modal-content">
@@ -89,7 +89,7 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <button  class="btn btn-success" data-dismiss="modal">Cancel</button>
+                                            <button  class="btn btn-success " data-dismiss="modal">Cancel</button>
 
                                         </div>
                                     </div>
@@ -97,7 +97,7 @@
                             </div>
 
                         </td>
-                        <td> <a onclick="deleteModal({{$company->id}})" class=" btn btn-danger" >Delete</a></td>
+                        <td> <a onclick="deleteModal({{$company->id}})" class=" btn btn-danger btn-xs" >Delete</a></td>
                     </tr>
                     @endforeach
                 </table>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">No,Cancel</button>
-                        <button onclick="deleteCompany()"  class="btn btn-warning">Yes,Delete</button>
+                        <button onclick="deleteCompany()"  class="btn btn-warning ">Yes,Delete</button>
                     </div>
                 </div>
             </div>

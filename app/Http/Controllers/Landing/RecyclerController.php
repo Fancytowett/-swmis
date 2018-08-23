@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Landing;
 
 use App\Recycler;
+use App\User;
+
+use App\Wasterequest;
+use App\Wastes;
 use App\Zone;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -32,6 +36,36 @@ class RecyclerController extends Controller
 
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function recyclerviewwaste(){
+        $waste=Wastes::all();
+        return view('landing.recyclerviewwaste')->withWastes($waste);
+    }
+    public function recylerwasterequestsave(Request $request){
+        $requestwaste= new Wasterequest();
+        $requestwaste->recycler_id=$request->input('recycler_id');
+        $requestwaste->email=$request->input('email');
+        $requestwaste->waste_type=$request->input('waste_type');
+        $requestwaste->waste_type=$request->input('quantity');
+        $requestwaste->status=$request->input('status');
+        $requestwaste->save();
+
+        return redirect()->back();
+
+
+    }
+    public function recyclerrequestwaste(){
+        $user= auth()->user();
+        $recycler=Recycler::where('user_id',$user->id)->first();
+        return view('landing.requestwaste' ,['recycler'=>$recycler]);
+
+    }
+     public function recyclernots(){
+        return view('landing.recyclersnots');
+     }
 
 
 }

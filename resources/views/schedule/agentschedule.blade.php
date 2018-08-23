@@ -26,10 +26,20 @@
                                 <tr>
                                     <td>{{$schedule->zone->name}}</td>
                                     <td>{{$schedule->date}}</td>
-                                    <td>{{$schedule->day}}</td>
+                                    <td>{{$schedule->day_name}}</td>
                                     <td>{{$schedule->stime}}</td>
                                     <td>{{$schedule->ftime}}</td>
-                                    <td>{{$schedule->agents}}</td>
+                                    <td>
+                                        @if($schedule->agents)
+                                            <ol>
+                                                @foreach($schedule->agents as $agent)
+                                                    <li>{{$agent->agent->user->name}}</li>
+                                                @endforeach
+                                            </ol>
+                                        @else
+
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </table>

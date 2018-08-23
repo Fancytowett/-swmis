@@ -30,7 +30,7 @@
                                     <td>{{$company->phone}}</td>
                                     <td>{{$company->user->email}}</td>
                                     <td>
-                                        <a class="btn btn-info" data-target="#view" data-toggle="modal">view</a></td>
+                                        <a class="btn btn-info btn-xs" data-target="#view" data-toggle="modal">view</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

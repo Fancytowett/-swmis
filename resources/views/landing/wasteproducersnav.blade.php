@@ -9,7 +9,7 @@
         </div>
         <li><a href="{{url('/wasteproducerprofile')}}">PROFILE </a></li>
         <li> <a href="" >INVOICE STATUS </a></li>
-        <li> <a href="">SCHEDULE </a></li>
-        <li><a href="" >NOTIFICATIONS </a></li>
+        <li> <a href="{{url('wasteproducersscheduleview')}}">SCHEDULE </a></li>
+        <li><a href="{{url('/wasteproducerslanding')}}" >NOTIFICATIONS </a></li>
     </div>
 </div>

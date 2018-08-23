@@ -83,6 +83,30 @@
             #mainNav {
                 background-color: #33b5e5 !important;
             }
+            /*.stepwizard-row:before{*/
+                /*top:14px;*/
+                /*bottom: 0;*/
+                /*position: absolute;*/
+                /*content: "";*/
+                /*width: 100%;*/
+                /*height: 1px;*/
+                /*background-color: #ccc;*/
+                /*z-order:0;*/
+            /*}*/
+            /*.stepwizard-step{*/
+                /*display: table-cell;*/
+                /*text-align: center;*/
+                /*position:relative ;*/
+            /*}*/
+            /*.btn-circle{*/
+                /*width: 30px;*/
+                /*height: 30px;*/
+                /*text-align: center;*/
+                /*padding: 6px;*/
+                /*font-size: 12px;*/
+                /*line-height: 1.428571429;*/
+                /*border-radius: 15px;*/
+            /*}*/
 
         </style>
     </head>
@@ -178,8 +202,43 @@
                         </div>
                     </div>
                 </section>
+               {{--<div class="container-fluid">--}}
+                   {{--<div class="stepwizard">--}}
+                       {{--<div class="stepwizard-row setup-panel">--}}
+                           {{--<div class="stepwizard-step">--}}
+                               {{--<p>Register as Resident(homestead)</p>--}}
+                               {{--<a href="#step-1" type ="button" class="btn btn-primary btn-circle">1</a>--}}
 
-                <section id="services">
+                           {{--</div>--}}
+                           {{--<div class="stepwizard-step">--}}
+                               {{--<p>Register as a Company(business)</p>--}}
+                               {{--<a href="#step-2" type="button" class="btn btn-success btn-circle">2</a>--}}
+
+                           {{--</div>--}}
+                           {{--<div class="stepwizard-step">--}}
+                               {{--<p>Register as  Recycler</p>--}}
+                               {{--<a href="#step-3" type="button" class="btn btn-warning btn-circle">3</a>--}}
+
+                           {{--</div>--}}
+
+                       {{--</div>--}}
+                   {{--</div>--}}
+               {{--</div>--}}
+        {{--<div class="container">--}}
+            {{--<h3>Tabs</h3>--}}
+            {{--<ul class="nav nav-tabs">--}}
+                {{--<li class="active"><a href="#">Home</a></li>--}}
+                {{--<li><a href="{{url('/company')}}">Menu 1</a></li>--}}
+                {{--<li><a href="{{url('/resident/add')}}">Menu 2</a></li>--}}
+                {{--<li><a href="{{url('/recycler')}}">Menu 3</a></li>--}}
+            {{--</ul>--}}
+            {{--<br>--}}
+            {{--<p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find out how this can be done.</p>--}}
+        {{--</div>--}}
+
+
+
+        <section id="services">
                     <div class="container-fluid" style="height: 200px;padding-top: 100px;">
                         <div class="row">
                             <div class="col-lg-12 text-center">
@@ -238,8 +297,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}">
-                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                        <a class="portfolio-box" href="{{asset('images/6.jpg')}}">
+                            <img class="img-fluid" src="{{asset('images/6.jpg')}}" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
                                     <div class="project-category text-faded">
@@ -253,8 +312,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}">
-                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                        <a class="portfolio-box" href="{{asset('images/1.jpg')}}">
+                            <img class="img-fluid" src="{{asset('images/1.jpg')}}" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
                                     <div class="project-category text-faded">
@@ -268,8 +327,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}g">
-                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
+                        <a class="portfolio-box" href="{{asset('images/4.jpg')}}g">
+                            <img class="img-fluid" src="{{asset('images/4.jpg')}}" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
                                     <div class="project-category text-faded">
@@ -340,8 +399,8 @@
                         </div>
                     </div>
                 </section>
-        </div>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        </div>
+
     </body>
 </html>

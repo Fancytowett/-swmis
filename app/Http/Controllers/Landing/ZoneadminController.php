@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Landing;
 use App\agent;
 use App\company;
 use App\Resident;
+use App\Wastes;
+use App\Zone;
 use App\zoneadmin;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -72,6 +75,32 @@ public function zonepayments(){
         $zoneadmin->update(array_except($request->zoneadmin,'user'));
         $zoneadmin->user->update($request->zoneadmin['user']);
         return response()->json(['success'=>true]);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function zonewastereport(){
+        $zone=Zone::all();
+        return view('landing.zonewastereport')->withZones($zone);
+
+    }
+    public function zonewastereportsave(Request $request){
+        $wastereport= new wastes();
+        $wastereport->date= Carbon::today();
+        $wastereport->day=$request->input('day');
+        $wastereport->waste_type=$request->input('waste_type');
+        $wastereport->zone_id=$request->input('zone_id');
+        $wastereport->quantity=$request->input('quantity');
+        $wastereport->save();
+        return redirect()->back();
+
+
+    }
+    public function zonewastereportlist()
+    {
+        $waste=Wastes::all();
+    return view('landing.zonewastereportlist')->withWastes($waste);
     }
 
 

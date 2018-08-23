@@ -4,7 +4,7 @@
     <div class="panel">
 
         <div class="panel-heading">
-            <h3 style="color: #33B5E5;font-family:Times New Roman;"><a href="{{url('/zoneadminlanding')}}"> Zone Admin Dashboard home</a></h3>
+            <h3 style="color: #33B5E5;font-family:Times New Roman;"><a href="{{url('/zoneadminlanding')}}">HOME</a></h3>
 
        </div>
         <div class="panel-body">
@@ -15,6 +15,8 @@
             <li><a href="{{url('/zonescompanieslist')}}">Zone Companies</a></li>
             <li><a href="{{url('zonewasteproducersschedule')}}">Waste collection schedule</a></li>
             <li><a href="{{url('/paymentsrecords')}}">Zone Payments</a></li>
+            <li><a href="{{url('/zonewastereport')}}">Report available waste</a></li>
+            <li><a href="{{url('/zonewastereportlist')}}">Available waste</a></li>
          {{--</ul>--}}
         </div>
     </div>

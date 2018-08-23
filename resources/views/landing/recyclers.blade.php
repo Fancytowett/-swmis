@@ -31,7 +31,7 @@
                         <div class="col-md-4">
                             <div class="well" style="height:150px;background-color: #009901;color:white;opacity: 0.8">
 
-                                <center><h4 style="padding-top: 30px;padding-bottom: 50px;">RECYCLABLE WASTE</h4></center>
+                                <center><h4 style="padding-top: 30px;padding-bottom: 50px;"><a href="{{url('/recyclerviewwaste')}}">RECYCLABLE WASTE</a> </h4></center>
                             </div>
 
                         </div>

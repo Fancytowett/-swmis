@@ -58,4 +58,5 @@ class wasteproducersController extends Controller
         $company->user->update($request->company['user']);
         return response()->json(['success'=>true]);
     }
+
 }

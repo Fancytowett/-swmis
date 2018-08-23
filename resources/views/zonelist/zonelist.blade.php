@@ -11,7 +11,7 @@
                 @include('adminnav')
             </div>
             <div class="col-md-9">
-                <div class="panel panel-default">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4>Zone List</h4>
                     </div>
@@ -37,10 +37,10 @@
                                     <td>{{\App\Company::where('zone_id',$zone->id)->count()}}</td>
                                     <td>Amount of waste</td>
                                     <td>
-                                        <button class= "btn btn-info" data-target="#edit" data-toggle="modal"> |Edit|</button >
+                                        <button class= "btn btn-info btn-xs" data-target="#edit" data-toggle="modal"> |Edit|</button >
                                     </td >
                                     <td>
-                                        <a class="btn btn-danger" onclick="bdeleteModal({{$zone->id}})">|Delete|</a>
+                                        <a class="btn btn-danger btn-xs" onclick="bdeleteModal({{$zone->id}})">|Delete|</a>
                                     </td>
                                 </tr>
                             @endforeach

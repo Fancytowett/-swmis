@@ -3,16 +3,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3">
-                @include('landing.zoneadminnav')
+                @include('landing.recyclernav')
+
             </div>
             <div class="col-md-9">
 
+            @include('landing.availablewaste')
 
-                        @include('schedule.wasteproducersschedule')
-
-            </div>
             </div>
         </div>
-
     </div>
-    @endsection
+@endsection
