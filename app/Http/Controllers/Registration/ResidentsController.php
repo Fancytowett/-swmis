@@ -36,7 +36,7 @@ class ResidentsController extends Controller
         $resident->period=$request->input('period');
         $resident->save();
 
-        return redirect()->back()->withStatus('Registered succesfully');
+        return redirect('/wasteproducerslanding')->withStatus('Registered succesfully');
 
     }
     public  function destroy($id){

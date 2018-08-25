@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Landing;
 
 use App\Agent;
 use App\Company;
+use App\Companywaste;
 use App\Resident;
+use App\Residentwaste;
 use App\Zone;
 use App\Zoneadmin;
 
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -64,12 +67,47 @@ class AgentController extends Controller
         return view('landing.agentcompanies')->withCompanies($company);
 }
  public function agentresidentwasterecord(){
+         $user=auth()->user();
+         $agent=Agent::where('user_id',$user->id)->first();
+         $zone=Zone::all();
         $resident=Resident::all();
 
-        return view('landing.agentresidentswasterecords')->withResidents($resident);
+        return view('landing.agentresidentswasterecords')->withResidents($resident)->withAgents($agent)->withZones($zone);
  }
     public function agentcompanywasterecord(){
+        $user=auth()->user();
+        $agent=Agent::where('user_id',$user->id)->first();
+        $zone=Zone::all();
         $company=Company::all();
-        return view('landing.agentcompanywasterecords')->withCompanies($company);
+        return view('landing.agentcompanywasterecords')->withCompanies($company)->withStatus($agent)->withZones($zone);
     }
+    public  function agentresidentwastesave(Request $request){
+        $residentwastes= new Residentwaste();
+        $residentwastes->zone_id=$request->input('zone_id');
+        $residentwastes->agent_id=$request->input('agent_id');
+        $residentwastes->date= Carbon::today();
+        $residentwastes->day=$request->input('day');
+        $residentwastes->resident_id=$request->input('resident_id');
+        $residentwastes->quantity=$request->input('quantity');
+        $residentwastes->save();
+
+
+        return redirect()->back()->withStatus('Record sent successfully!');
+
+
+    }
+    public function agentcompanywastesave( Request $request){
+        $companywastes= new Companywaste();
+        $companywastes->zone_id=$request->input('zone_id');
+        $companywastes->agent_id=$request->input('agent_id');
+        $companywastes->date= Carbon::today();
+        $companywastes->day=$request->input('day');
+        $companywastes->company_id=$request->input('company_id');
+        $companywastes->quantity=$request->input('quantity');
+        $companywastes->save();
+
+        return redirect()->back()->withStatus('Record sent successfully!');
+
+    }
+
     }

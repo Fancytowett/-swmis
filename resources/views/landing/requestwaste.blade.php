@@ -14,18 +14,6 @@
                         <form role="form" action="{{url('/recyclerrequestwastesave')}}" method="post">
                             {!! csrf_field() !!}
                             <div class="form-group">
-                                <div class="form-group">
-                                    <label for="Name">Name</label>
-                                    <select name="recycler_id" class="form-control">
-                                        @foreach($recycler as $recyclers)
-                                            <option value="{{$recycler->id}}">{{$recycler->user->name}}</option>
-                                            @endforeach
-
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" name="email" placeholder="Enter your email" >
                             </div>
@@ -42,14 +30,7 @@
                                 <label for="quantity">Quantity</label>
                                 <input type="text" class="form-control" name="quantity" placeholder="Enter quantity of waste to request" >
                             </div>
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <select name="status" class="form-control">
-                                    <option value="1">New request</option>
-                                    <option value="0">Granted</option>
 
-                                </select>
-                            </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary" value="Request" name="submit">
                             </div>

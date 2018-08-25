@@ -6,7 +6,7 @@
                 @include('landing.zoneadminnav')
             </div>
             <div class="col-md-9">
-                @include('landing.availablewaste')
+
             </div>
         </div>
     </div>

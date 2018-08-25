@@ -32,7 +32,7 @@ class AgentController extends Controller
 
         $agent->save();
 
-        return redirect()->back()->withStatus(' Registered successfully');
+        return redirect()->withStatus(' Registered successfully');
     }
     public  function  destroy($id){
         $agent=agent::find($id);

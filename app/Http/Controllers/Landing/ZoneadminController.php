@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Landing;
 use App\agent;
 use App\company;
 use App\Resident;
+use App\Residentwaste;
 use App\Wastes;
 use App\Zone;
 use App\zoneadmin;
@@ -101,6 +102,14 @@ public function zonepayments(){
     {
         $waste=Wastes::all();
     return view('landing.zonewastereportlist')->withWastes($waste);
+    }
+    public function agentresidentrecordedwaste()
+    {
+        $user = auth()->user();
+        $zone = zoneadmin::where('user_id',$user->id)->first();
+        $residentwaste=Residentwaste::with('zone')->where('zone_id',$zone->id)->get();
+
+        return view('landing.agentresidentrecordedwaste')->withWastes($residentwaste);
     }
 
 

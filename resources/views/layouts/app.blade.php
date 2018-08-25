@@ -11,7 +11,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
    <link href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Styles -->
-   {{--<link href=" https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
     <style>
@@ -250,6 +249,7 @@
             top: 70px;
             position: relative;
         }
+
         .navbar-default {
             background: #33B5E5 !important;
         }
@@ -328,17 +328,15 @@
 
     <div id="app" class="mt-5">
         @if (session('status'))
-            <div class="alert alert-success">
+            <div class="alert alert-success" style="position:absolute; z-index: 99999; left:40%;">
                 {{ session('status') }}
             </div>
         @endif
         @yield('content')
     </div>
-
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    {{--<script src="https://code.jquery.com/jquery-3.2.1.js"></script>--}}
-    @yield('after-scripts')
     @yield('javascripts')
+    @yield('after-scripts')
 </body>
 </html>

@@ -125,6 +125,8 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/agentresidents','AgentController@agentresidents');
     Route::get('/agentcompanies','AgentController@agentcompanies');
     Route::get('/agentresidentwasterecord','AgentController@agentresidentwasterecord');
+    Route::post('/agentcompanywastesave','AgentController@agentcompanywastesave');
+    Route::post('/agentresidentwastesave','AgentController@agentresidentwastesave');
     Route::get('/agentcompanywasterecord','AgentController@agentcompanywasterecord');
     Route::get('/agentsschedule','AgentController@agentsschedule');
     Route::get('/zoneadminlanding','ZoneadminController@index');

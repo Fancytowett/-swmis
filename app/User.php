@@ -34,6 +34,11 @@ class User extends Authenticatable
     public function agent()
     {
         return $this->hasOne(Agent::class,'user_id','id');
-            }
+    }
+
+    public function recycler()
+    {
+        return $this->hasOne(Recycler::class,"user_id",'id');
+    }
 
 }

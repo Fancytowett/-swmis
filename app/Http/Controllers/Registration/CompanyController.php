@@ -33,7 +33,7 @@ class CompanyController extends Controller
         $company->period=$request->input('period');
         $company->save();
 
-        return redirect()->back()->withStatus('succesfully registered');
+        return redirect('/wasteproducerslanding')->withStatus('succesfully registered');
 
 
     }

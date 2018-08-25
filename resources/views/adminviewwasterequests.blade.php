@@ -16,22 +16,26 @@
                       <table class="table table-responsive table-striped table-hover">
                           <thead>
                           <tr>
-                              <th>Recycler Name</th>
+                              <th>User ID</th>
                               <th>Email</th>
                               <th>Waste Type</th>
                               <th>Quantity</th>
                               <th>Status</th>
                           </tr>
                           </thead>
-                          <tr>
+
                               @foreach($requests as $request)
-                                  <td>{{$request->user->name}}</td>
-                                  <td>{{$request->user->email}}</td>
-                                  <td>{{$request->waste_type_name}}</td>
+                              <tr>
+                                  <td>{{$request->id}}</td>
+                                  <td>{{$request->email}}</td>
+                                  <td>{{$request->waste_type}}</td>
+                                  <td>{{$request->quantity}}</td>
                                   <td>{{$request->status}}</td>
+
+                              </tr>
                                   @endforeach
 
-                          </tr>
+
                       </table>
                   </div>
               </div>

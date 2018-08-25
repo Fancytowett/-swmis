@@ -174,7 +174,7 @@
                         <div class="row">
                             <div class="col-lg-10 mx-auto">
                                 <h1 style="color: white" class="text-uppercase">
-                                    <strong >Get best waste collection services and get recyclabe waste</strong>
+                                    <strong>Get best waste collection services and get recyclabe waste</strong>
                                 </h1>
                                 <hr>
                             </div>
@@ -252,15 +252,15 @@
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
                                     <i class="fa fa-4x fa-diamond text-info mb-3 sr-icons"></i>
-                                    <h3 class="mb-3">Have your waste collected and disposed</h3>
-                                    <p class="text-muted mb-0">Connect with us to have your waste collected</p>
+                                    <h3 class="mb-3"><a href="{{url('/resident')}}">Have your waste collected and disposed</a></h3>
+                                    <p class="text-muted mb-0">Register with us to have your waste collected</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
                                     <i class="fa fa-4x fa-paper-plane text-info mb-3 sr-icons"></i>
-                                    <h3 class="mb-3">Get variety of  Recyclable waste</h3>
-                                    <p class="text-muted mb-0">Buy waste for recycling</p>
+                                    <h3 class="mb-3"><a href="{{url('/recycler')}}">Get variety of  Recyclable waste</a></h3>
+                                    <p class="text-muted mb-0"> Register  to Buy waste for recycling</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 text-center">
@@ -280,71 +280,71 @@
                         </div>
                     </div>
                 </section>
-        <section class="p-0" id="portfolio">
-            <div class="container-fluid p-0">
-                <div class="row no-gutters popup-gallery">
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/truck.jpg')}}">
-                            <img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
+        {{--<section class="p-0" id="portfolio">--}}
+            {{--<div class="container-fluid p-0">--}}
+                {{--<div class="row no-gutters popup-gallery">--}}
+                    {{--<div class="col-lg-4 col-sm-6">--}}
+                        {{--<a class="portfolio-box" href="{{asset('images/truck.jpg')}}">--}}
+                            {{--<img class="img-fluid" src="{{asset('images/truck.jpg')}}" alt="">--}}
+                            {{--<div class="portfolio-box-caption">--}}
+                                {{--<div class="portfolio-box-caption-content">--}}
 
-                                    <div class="project-name">
-                                        Waste collection truck
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/6.jpg')}}">
-                            <img class="img-fluid" src="{{asset('images/6.jpg')}}" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/1.jpg')}}">
-                            <img class="img-fluid" src="{{asset('images/1.jpg')}}" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="{{asset('images/4.jpg')}}g">
-                            <img class="img-fluid" src="{{asset('images/4.jpg')}}" alt="">
-                            <div class="portfolio-box-caption">
-                                <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
-                                    <div class="project-name">
-                                        Project Name
-                                    </div>
-                                    <br><br>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+                                    {{--<div class="project-name">--}}
+                                        {{--Waste collection truck--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-lg-4 col-sm-6">--}}
+                        {{--<a class="portfolio-box" href="{{asset('images/6.jpg')}}">--}}
+                            {{--<img class="img-fluid" src="{{asset('images/6.jpg')}}" alt="">--}}
+                            {{--<div class="portfolio-box-caption">--}}
+                                {{--<div class="portfolio-box-caption-content">--}}
+                                    {{--<div class="project-category text-faded">--}}
+                                        {{--Category--}}
+                                    {{--</div>--}}
+                                    {{--<div class="project-name">--}}
+                                        {{--Project Name--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-lg-4 col-sm-6">--}}
+                        {{--<a class="portfolio-box" href="{{asset('images/1.jpg')}}">--}}
+                            {{--<img class="img-fluid" src="{{asset('images/1.jpg')}}" alt="">--}}
+                            {{--<div class="portfolio-box-caption">--}}
+                                {{--<div class="portfolio-box-caption-content">--}}
+                                    {{--<div class="project-category text-faded">--}}
+                                        {{--Category--}}
+                                    {{--</div>--}}
+                                    {{--<div class="project-name">--}}
+                                        {{--Project Name--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-lg-4 col-sm-6">--}}
+                        {{--<a class="portfolio-box" href="{{asset('images/4.jpg')}}g">--}}
+                            {{--<img class="img-fluid" src="{{asset('images/4.jpg')}}" alt="">--}}
+                            {{--<div class="portfolio-box-caption">--}}
+                                {{--<div class="portfolio-box-caption-content">--}}
+                                    {{--<div class="project-category text-faded">--}}
+                                        {{--Category--}}
+                                    {{--</div>--}}
+                                    {{--<div class="project-name">--}}
+                                        {{--Project Name--}}
+                                    {{--</div>--}}
+                                    {{--<br><br>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</section>--}}
 
 
                 <section id="contact">

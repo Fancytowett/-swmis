@@ -8,9 +8,7 @@
             <li><a href="{{url('/recyclerprofile')}}" style="color:#33B5E5" >PROFILE </a></li>
             <li> <a href="" style="color:#33B5E5" >INVOICE STATUS </a></li>
             <li> <a href="" style="color:#33B5E5" >RECEIPTS </a></li>
-            <li><a href="{{url('/recyclerviewwaste')}}"  style="color:#33B5E5"> VIEW AVAILABLE WASTE AND MAKE REQUEST</a></li>
-
-            <li><a href="{{url('recyclernots')}}" style="color:#33B5E5">NOTIFICATIONS </a></li>
+            <li><a href="{{url('/recyclerviewwaste')}}"  style="color:#33B5E5"> WASTE NOTIFICATIONS</a></li>
         </div>
 
     </div>
