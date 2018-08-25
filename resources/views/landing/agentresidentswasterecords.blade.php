@@ -18,14 +18,6 @@
                                     @foreach($zones as $zone)
                                         <option value="{{$zone->id}}">{{$zone->name}}</option>
                                     @endforeach
-
-                                </select>
-                            </div>
-                                <label for="name"> Agent Name</label>
-                                <select name="agent_id" class="form-control">
-                                    @foreach( $agents as $agent)
-                                        <option value="{{$agent->id}}">{{$agent->user->name}}</option>
-                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

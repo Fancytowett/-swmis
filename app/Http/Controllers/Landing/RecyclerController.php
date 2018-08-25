@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Session;
 
 class RecyclerController extends Controller
 {
+
     public function index()
     {
-        return view('Landing.recyclers');
+        return view('landing.recyclers');
     }
 
     public function profile(){

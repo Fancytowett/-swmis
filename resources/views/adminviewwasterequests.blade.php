@@ -21,21 +21,22 @@
                               <th>Waste Type</th>
                               <th>Quantity</th>
                               <th>Status</th>
+                              <th>Action</th>
                           </tr>
                           </thead>
 
-                              @foreach($requests as $request)
+                              @foreach($requests as $_request)
                               <tr>
-                                  <td>{{$request->id}}</td>
-                                  <td>{{$request->email}}</td>
-                                  <td>{{$request->waste_type}}</td>
-                                  <td>{{$request->quantity}}</td>
-                                  <td>{{$request->status}}</td>
-
+                                  <td>{{$_request->id}}</td>
+                                  <td>{{$_request->email}}</td>
+                                  <td>{{$_request->waste_type}}</td>
+                                  <td>{{$_request->quantity}}</td>
+                                  <td>{{$_request->status}}</td>
+                                  <td>
+                                      <a href="{{route('send.invoice', $_request)}}" class="btn btn-success">Send Invoice</a>
+                                  </td>
                               </tr>
-                                  @endforeach
-
-
+                              @endforeach
                       </table>
                   </div>
               </div>

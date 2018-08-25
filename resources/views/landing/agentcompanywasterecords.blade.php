@@ -21,13 +21,6 @@
 
                                 </select>
                             </div>
-                                <label for="name"> Agent Name</label>
-                                <select name="agent_id" class="form-control">
-                                    @foreach( $agents as $agent)
-                                        <option value="{{$agent->id}}}">{{$agent->user->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                             <div class="form-group">
                                 <label for="date">Date</label>
                                 <input type="date" name="date" class="form-control">
@@ -48,8 +41,8 @@
                                 <label for="name"> Company Name</label>
                                 <select name="company_id" class="form-control">
                                     @foreach( $companies as $company)
-                                    <option value="{{$company->id}}}">{{$company->user->name}}</option>
-                                        @endforeach
+                                    <option value="{{$company->id}}">{{$company->user->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">

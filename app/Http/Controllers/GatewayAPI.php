@@ -58,6 +58,7 @@ class GatewayAPI extends Controller
 		{
 		    case Gateway\EnvayaSMS::ACTION_INCOMING:
 		        $type = strtoupper($action->message_type);
+                $events = array();
 		        Log::info("MNET Received: {$type} from: {$action->from} message: {$action->message}");
 		        if($action->from == 'MPESA' || Str::endsWith($action->from,'743169027')){
 		            $parts = explode(" ", $action->message);
@@ -76,11 +77,27 @@ class GatewayAPI extends Controller
                         'kyc_name' => $parts[6].' '.$parts[7],
                         'created_at' => Carbon::now()
                     ];
+
                     $this->helper->process($format);
+
+                    $sms = new Gateway\EnvayaSMS_OutgoingMessage();
+                    $sms->id = uniqid();
+                    $sms->to = $format['msisdn'];
+                    $sms->message = "SWIMS Payment Confirmed. Receipt no. ".$format['bill_ref_number'];
+                    $sms->type = Gateway\EnvayaSMS::MESSAGE_TYPE_SMS;
+                    $sms->priority = 1;
+                    $messages[] = $sms;
+
+                    if ($messages)
+                    {
+                        $events[] = new Gateway\EnvayaSMS_Event_Send($messages);
+                    }
                 }
-				return response()->json(array(
-					"events"=>null
-				));
+
+
+                return response()->json(array(
+                    "events"=>$events
+                ));
 		        
 		    case Gateway\EnvayaSMS::ACTION_OUTGOING:
 		        $messages = array();

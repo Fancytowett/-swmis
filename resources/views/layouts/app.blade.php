@@ -245,7 +245,7 @@
 
 
 
-        #app .container,#app .container-fluid {
+        #apph .container,#apph .container-fluid {
             top: 70px;
             position: relative;
         }
@@ -326,7 +326,7 @@
         </div>
     </nav>
 
-    <div id="app" class="mt-5">
+    <div id="apph" class="mt-5">
         @if (session('status'))
             <div class="alert alert-success" style="position:absolute; z-index: 99999; left:40%;">
                 {{ session('status') }}

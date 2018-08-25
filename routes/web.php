@@ -17,6 +17,10 @@ Route::resource('/mnet/sms/gateway', 'GatewayAPI');
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Send email
+Route::post('send-contact-email','ContactUsController@send')->name('send.contactus');
+Route::get('send-invoice-email/{wasterequest}/process','PaymentController@sendInvoice')->name('send.invoice');
+
 Route::get('/payments',function (){
     return view('payments');
 });
@@ -54,7 +58,6 @@ Route::group(['namespace'=>'Schedule'],function (){
 });
 
 
-
 Route::group(['namespace'=>'Registration'],function(){
     Route::get('/resident','ResidentsController@residentreg');
 
@@ -80,7 +83,7 @@ Route::group(['namespace'=>'Registration'],function(){
 
     Route::get('/company', 'CompanyController@index');
 
-    Route::post('/company/save','Companycontroller@store');
+    Route::post('/company/save','CompanyController@store');
     Route::get('company/delete/{id}','CompanyController@destroy');
 
     Route::get('/agents/add','AgentController@regagent');
@@ -135,21 +138,21 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/recyclerprofile','RecyclerController@profile');
     Route::get('/recyclernots','RecyclerController@recyclernots');
 
-    Route::get('/wasteproducerslanding','wasteproducersController@index');
-    Route::get('/wasteproducerprofile','wasteproducersController@wasteproducerprofile');
-    Route::get('/zoneresidents','wasteproducersController@zoneresidents');
-    Route::get('/zonecompanies','wasteproducersController@zonecompanies');
-    Route::get('/zonewasteproducersschedule','wasteproducersController@wasteproducersschedule');
+    Route::get('/wasteproducerslanding','WasteproducersController@index');
+    Route::get('/wasteproducerprofile','WasteproducersController@wasteproducerprofile');
+    Route::get('/zoneresidents','WasteproducersController@zoneresidents');
+    Route::get('/zonecompanies','WasteproducersController@zonecompanies');
+    Route::get('/zonewasteproducersschedule','WasteproducersController@wasteproducersschedule');
 
     Route::get('/agentprofile','AgentController@profile');
     Route::get('/agentprofile/{agent}/get','AgentController@getProfile')->name('agent.profile.get');
     Route::post('/agentprofile/{agent}/update','AgentController@updateProfile')->name('agent.profile.update');
-    Route::get('/residentprofile/{resident}/get','wasteproducersController@tresidentgetProfile')->name('resident.profile.get');
-    Route::post('/residentprofile/{resident}/update','wasteproducersController@residentupdateProfile')->name('resident.profile.update');
+    Route::get('/residentprofile/{resident}/get','WasteproducersController@tresidentgetProfile')->name('resident.profile.get');
+    Route::post('/residentprofile/{resident}/update','WasteproducersController@residentupdateProfile')->name('resident.profile.update');
     Route::get('/recyclerprofile/{recycler}/get','RecyclerController@getProfile')->name('recycler.profile.get');
     Route::post('/recyclerprofile/{recycler}/update','RecyclerController@updateProfile')->name('recycler.profile.update');
-    Route::get('/companyprofile/{company}/get','wasteproducersController@getcompanyprofile')->name('company.profile.get');
-    Route::post('/companyprofile/{company}/update','wasteproducersController@updateprofile')->name('company.profile.update');
+    Route::get('/companyprofile/{company}/get','WasteproducersController@getcompanyprofile')->name('company.profile.get');
+    Route::post('/companyprofile/{company}/update','WasteproducersController@updateprofile')->name('company.profile.update');
     Route::get('/zoneadminprofile/{zoneadmin}/get','ZoneadminController@getprofile')->name('zoneadmin.profile.get');
     Route::post('/zoneadminprofile/{zoneadmin}/update','ZoneadminController@updateprofile')->name('zoneadmin.profile.update');
 

@@ -8,10 +8,10 @@ use App\Zone;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class wasteproducersController extends Controller
+class WasteproducersController extends Controller
 {
     public function index(){
-        return view('Landing.wasteproducers');
+        return view('landing.wasteproducers');
     }
     public  function  wasteproducersschedule(){
         return view('landing.wasteproducersschedule');
