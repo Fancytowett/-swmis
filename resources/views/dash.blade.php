@@ -3,10 +3,9 @@
         <div class="panelG panel-default">
             <div class="panel-heading">
                <div class="pull-righdt">
-                   <a href="" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Add Zone</a>
-                   <a href="" class="btn btn-info btn-xs"><i class="fa fa-plus"></i> Add Zone</a>
-                   <a href="" class="btn btn-warning btn-xs"><i class="fa fa-plus"></i> Add Zone</a>
-                   <a href="" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> Add Zone</a>
+                   <a href="{{url('/zones/add')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> Add Zone</a>
+                   <a href="{{url('/zoneadmin')}}" class="btn btn-info btn-xs"><i class="fa fa-plus"></i> Add ZoneAdmin</a>
+                   <a href="{{url('/agents/add')}}" class="btn btn-warning btn-xs"><i class="fa fa-plus"></i> Add Agent</a>
                </div>
             </div>
             <div class="panel-body">
@@ -14,35 +13,44 @@
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h2>30</h2>
-                                <span>Users</span>
+                                <h2>{{\App\Zone::all()->count()}}</h2>
+                                <span><a href="{{url('/zonelists')}}">Zones</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h2>30</h2>
-                                <span>Users</span>
+                                <h2>{{\App\Zoneadmin::all()->count()}}</h2>
+                                <span><a href="{{url('/zoneadminlist')}}">Zoneadmins</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h2>30</h2>
-                                <span>Users</span>
+                                <h2>{{\App\Resident::all()->count()}}</h2>
+                                <span><a href="{{url('/residentlist')}}">Residents</a></span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h2>30</h2>
-                                <span>Users</span>
+                                <h2>{{\App\Company::all()->count()}}</h2>
+                                <span><a href="{{url('/companylist')}}">Companies</a></span>
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h2>{{\App\Agent::all()->count()}}</h2>
+                                <span><a href="{{url('/agentlist')}}">Agents</a></span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

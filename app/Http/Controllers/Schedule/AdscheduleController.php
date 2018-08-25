@@ -38,6 +38,7 @@ class AdscheduleController extends Controller
                      'schedule_id' => $wasteproducersschedule->id,
                      'agent_id' => $agent
                  ]);
+
              }
          }
 

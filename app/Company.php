@@ -22,6 +22,7 @@ class Company extends Model
                  return "Recyclable";
             case 2:
                 return "Disposable";
+
         }
     }
 

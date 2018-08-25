@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Registration;
 
-use App\company;
+use App\Company;
 use App\Zone;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
@@ -25,7 +25,7 @@ class CompanyController extends Controller
         $user->user_type=3;
         $user->save();
 
-        $company= new company();
+        $company= new Company();
         $company->user_id=$user->id;
         $company->zone_id=$request->input('zone_id');
         $company->phone=$request->input('phone');
@@ -33,12 +33,14 @@ class CompanyController extends Controller
         $company->period=$request->input('period');
         $company->save();
 
-        return redirect()->back()->withStatus('succesfully registered');
+        auth()->login($user);
+
+        return redirect('/wasteproducerslanding')->withStatus('succesfully registered');
 
 
     }
     public function destroy($id){
-     $company=company::find($id);
+     $company=Company::find($id);
         User::find($company->user_id)->delete();
        $company->delete();
         return redirect()->back();

@@ -6,8 +6,8 @@
             <div class="col-md-3">
                 @include('adminnav')
             </div>
-            <div class="col-md-7 col-md-offset-1">
-                <div class="panel panel-default">
+            <div class="col-md-5 col-md-offset-2">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4> Schedule</h4>
                     </div>

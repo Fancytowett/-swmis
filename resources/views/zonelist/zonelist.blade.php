@@ -11,14 +11,14 @@
                 @include('adminnav')
             </div>
             <div class="col-md-9">
-                <div class="panel panel-default">
+                <div class="panel panel-info">
                     <div class="panel-heading">
                         <h4>Zone List</h4>
                     </div>
                     <div class="panel-body">
                         <table class="table" id="datatable">
                             <thead>
-                            <tr class="alert-danger">
+                            <tr>
                                 <th>ID</th>
                                 <th>NAME</th>
                                 <th>NO. OF RESIDENTS</th>
@@ -37,15 +37,16 @@
                                     <td>{{\App\Company::where('zone_id',$zone->id)->count()}}</td>
                                     <td>Amount of waste</td>
                                     <td>
-                                        <button class= "btn btn-info" data-target="#edit" data-toggle="modal"> |Edit|</button >
+                                        <button class= "btn btn-info btn-xs" data-target="#edit" data-toggle="modal"> |Edit|</button >
                                     </td >
                                     <td>
-                                        <a class="btn btn-danger" onclick="deleteModal({{$zone->id}})">|Delete|</a>
+                                        <a class="btn btn-danger btn-xs" onclick="bdeleteModal({{$zone->id}})">|Delete|</a>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
@@ -86,7 +87,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-success" data-dismiss="modal">No,Cancel</button>
-                            <button class="btn btn-warning">Yes,Delete</button>
+                            <button onclick="vdeleteZone()" class="btn btn-warning">Yes,Delete</button>
                         </div>
                     </div>
                 </div>
@@ -106,8 +107,11 @@
             modal.find('.modal-body #name').val(name);
             modal.find('.modal-body #zone_id').val(zone_id);
         });
-        function deleteModal(id){
+        function bdeleteModal(id){
             window.zonelist.deleteModal(id);
+        }
+        function vdeleteZone(){
+            window.zonelist.deleteZone();
         }
         window.zonelist = new Vue({
             el:'#zonelist',

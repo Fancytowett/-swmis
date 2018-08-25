@@ -5,8 +5,7 @@
 
       <div class="panel-body">
           <table class=" table">
-            <thead>
-                <tr class="alert-danger ">
+            <thead>>
                     <th>ID</th>
                     <th>USER TYPE</th>
                     <th>AMOUNT</th>

@@ -28,7 +28,7 @@ class RecyclerController extends Controller
         $recycler->waste_type=$request->input('waste-type');
          $recycler->save();
 
-        return redirect()->back()->withStatus('Registered successfully');
+        return redirect('/recyclerlanding')->withStatus('Registered successfully');
 
 
      }

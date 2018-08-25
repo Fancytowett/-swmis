@@ -11,12 +11,10 @@
 
 
             <div class="col-md-9 ">
-                <div class="well well-lg" style="background: lavender;margin-top: 50px;"><h4 style="color:#3097D1;text-align: left;"><span class=" glyphicon-time">Dashboard</span> <b></b></h4>
 
-                </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{url('/home')}}"><button class="btn btn-primary"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
+                        <a href="{{url('/home')}}"><button class="btn btn-primary btn-xs"style="float:left;"><span class="glyphicon-arrow-left">BACK</span></button></a>
                     </div>
                 </div>
                 <div class="panel panel-info">
@@ -26,7 +24,7 @@
 
                     <table class="table table-hover" id="datatable">
                     <thead>
-                    <tr class="alert-danger">
+                    <tr>
                         <th>USER ID</th>
                         <th>NAME</th>
                         <th>EMAIL</th>
@@ -49,16 +47,64 @@
                         <td>{{$company->waste_type_name}}</td>
                         <td>{{$company->period_name}}</td>
                         <td>
-                            <button class="btn btn-info" data-target="#view" data-toggle="modal">View</button>
+                            <button class="btn btn-info btn-xs" data-target="#view{{$company->id}}" data-toggle="modal">View</button>
+                            <div class="modal modal-danger fade" id="view{{$company->id}}" style="margin-top: 100px;margin-left: 700px;margin-right: 250px;">
+                                <div class="modal-dialog-content" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"aria-label="close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title text-left " id="myModalLabel "style="text-align:center;font-weight: bold;">Details</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <tr>
+                                                    <td>USER ID</td>
+                                                    <td>{{$company->id}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>NAME:</td>
+                                                    <td>{{$company->user->name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>EMAIL:</td>
+                                                    <td>{{$company->user->email}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PHONE:</td>
+                                                    <td>{{$company->phone}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ZONE NAME:</td>
+                                                    <td>{{$company->zone->name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>WASTE TYPE</td>
+                                                    <td>{{$company->waste_type_name}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PERIOD</td>
+                                                    <td>{{$company->period_name}}</td>
+                                                </tr>
+                                            </table>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button  class="btn btn-success " data-dismiss="modal">Cancel</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </td>
-                        <td> <a @click="deleteModal({{$company->id}})" class=" btn btn-danger" >Delete</a></td>
+                        <td> <a onclick="deleteModal({{$company->id}})" class=" btn btn-danger btn-xs" >Delete</a></td>
                     </tr>
                     @endforeach
                 </table>
                 </div>
             </div>
         </div>
-        <div class="modal modal-danger fade" id="delete" style="margin-top: 250px;margin-left: 700px;margin-right: 250px;">
+        <div class="modal modal-danger fade" id="delete" style="margin-top: 200px;margin-left: 700px;margin-right: 250px;">
             <div class="modal-dialog-content" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -72,54 +118,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">No,Cancel</button>
-                        <button @click="deleteCompany"  class="btn btn-warning">Yes,Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal modal-danger fade" id="view" style="margin-top: 100px;margin-left: 700px;margin-right: 250px;">
-            <div class="modal-dialog-content" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"aria-label="close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title text-left " id="myModalLabel "style="text-align:center;font-weight: bold;">Details</h4>
-                    </div>
-                    <div class="modal-body">
-                        <table class="table">
-                            <tr>
-                                <td>USER ID</td>
-                                <td>{{$company->id}}</td>
-                            </tr>
-                            <tr>
-                                <td>NAME:</td>
-                                <td>{{$company->user->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>EMAIL:</td>
-                                <td>{{$company->user->email}}</td>
-                            </tr>
-                            <tr>
-                            <td>PHONE:</td>
-                                <td>{{$company->phone}}</td>
-                            </tr>
-                            <tr>
-                                <td>ZONE NAME:</td>
-                                <td>{{$company->zone->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>WASTE TYPE</td>
-                                <td>{{$company->waste_type_name}}</td>
-                            </tr>
-                            <tr>
-                                <td>PERIOD</td>
-                                <td>{{$company->period_name}}</td>
-                            </tr>
-                        </table>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
-
+                        <button onclick="deleteCompany()"  class="btn btn-warning ">Yes,Delete</button>
                     </div>
                 </div>
             </div>
@@ -128,6 +127,12 @@
 @endsection
 @section('after-scripts')
     <script>
+        function deleteModal(id){
+            window.companylist.deleteModal(id);
+        }
+        function deleteCompany(){
+            window.companylist.deleteCompany();
+        }
         window.companylist = new Vue({
             el:'#companylist',
             data:{

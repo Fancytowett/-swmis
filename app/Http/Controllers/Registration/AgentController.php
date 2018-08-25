@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Registration;
 
 use App\Agent;
 use App\Http\Controllers\Controller;
+use App\Mail\SendUserPassword;
 use App\User;
 use App\Zone;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class AgentController extends Controller
 {
@@ -17,6 +21,11 @@ class AgentController extends Controller
     }
 
     public function saveagent(Request $request){
+
+//        $this->validate($request,[
+//            'name' => 'required'
+//        ]);
+
         $user=new User();
         $user->name=$request->input('name');
         $user->email=$request->input('email');
@@ -32,7 +41,12 @@ class AgentController extends Controller
 
         $agent->save();
 
-        return redirect()->back()->withStatus(' Registered successfully');
+        //Code to send email.
+        Mail::to($request->email)->send(new SendUserPassword($request));
+
+        Session::flash("Registered successfully. Password sent via email.");
+
+        return redirect()->back();
     }
     public  function  destroy($id){
         $agent=agent::find($id);
