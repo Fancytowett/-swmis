@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 class PaymentController extends Controller
 {
     public function outputPayment(){
-        $payment = PaymentConfirmation::all();
+        $payment = PaymentConfirmation::latest()->latest()->get();
 
         $total = $payment->sum('trans_amount');
 

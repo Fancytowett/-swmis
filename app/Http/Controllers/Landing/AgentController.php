@@ -91,7 +91,7 @@ class AgentController extends Controller
         $residentwastes->agent_id = auth()->user()->agent->id;
         $residentwastes->date=Carbon::today();
         $residentwastes->day = $request->input('day');
-        $residentwastes->resident_id = $user->id;
+        $residentwastes->resident_id = $request->input('resident_id');
         $residentwastes->quantity = $request->input('quantity');
         $residentwastes->save();
         Session::flash("Record sent successfully!");
@@ -99,13 +99,13 @@ class AgentController extends Controller
     }
 
     public function agentcompanywastesave( Request $request){
-        $user= new user();
+//        $user= new user();
         $companywastes= new Companywaste();
         $companywastes->zone_id=auth()->user()->agent->zone->id;
         $companywastes->agent_id=auth()->user()->agent->id;
         $companywastes->date=Carbon::today();
         $companywastes->day=$request->input('day');
-        $companywastes->company_id=$user->id;
+        $companywastes->company_id=$request->input('company_id');
         $companywastes->quantity=$request->input('quantity');
         $companywastes->save();
 

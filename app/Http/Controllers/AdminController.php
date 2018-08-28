@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function residentwastes(){
-        $residentwaste=Residentwaste::all();
+        $residentwaste=Residentwaste::latest()->get();
         return view('residentwaste')->withResidentwastes($residentwaste);
 
     }
     public  function companywastes(){
-        $companywaste=Companywaste::all();
+        $companywaste=Companywaste::with('zone')->latest()->get();
         return view('companywastes')->withCompanywastes($companywaste);
     }
 }

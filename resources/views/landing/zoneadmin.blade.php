@@ -23,7 +23,7 @@
 
                             </div>
                         <div class="col-md-4">
-                            <div class="well "style="height:150px;background-color:lavender;color:white;opacity: 0.8">
+                            <div class="well " style="height:150px;background-color:lavender;color:white;opacity: 0.8">
 
                                 <center><a href="{{url('zoneresidents')}}" ><h4 style="padding-top: 30px;padding-bottom: 50px;">{{\App\Resident::where('zone_id',$zone->zone_id)->count()}}  <br>RESIDENTS</h4></a></center>
                             </div>
@@ -52,7 +52,7 @@
                         <div class="col-md-4 ">
                             <div class="well" >
 
-{{--                                <center><h4 style="padding-top: 30px;padding-bottom: 50px;background: lavender">{{\App\Residentwaste::all()->sum('quantity')}} KG <br>RESIDENTS WASTE</h4></center>--}}
+                                <center><h4 style="padding-top: 30px;padding-bottom: 50px;background: lavender">{{\App\Residentwaste::all()->sum('quantity')}} KG <br>RESIDENTS WASTE</h4></center>
                             </div>
 
                         </div>

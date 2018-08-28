@@ -13,6 +13,8 @@
               <div class="panel panel-info">
                   <div class="panel-heading">
                       <h3>Waste Requests</h3>
+                      <a href="{{route('print.wrequests')}}" class="btn-primary btn btn-xs"><i class="fa fa-print"></i> print</a>
+
                   </div>
                   <div class="panel-body">
                       <table class="table table-responsive table-striped table-hover" id="datatable">
@@ -36,6 +38,7 @@
                                   <td>{{$_request->status}}</td>
                                   <td>
                                       <a href="{{route('send.invoice', $_request)}}" class="btn btn-success btn-xs">Send Invoice</a>
+                                      <a href="{{route('send.not-available', $_request)}}" class="btn btn-danger btn-xs">Notify not available.</a>
                                   </td>
                               </tr>
                               @endforeach

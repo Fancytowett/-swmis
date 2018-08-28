@@ -1,6 +1,14 @@
 <?php
 
+use App\Companywaste;
+use App\Notifications\WasteUnailable;
+use App\Wasterequest;
 use App\wastes;
+use Carbon\Carbon;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Faker\Provider\da_DK\Payment;
+use Illuminate\Support\Facades\Notification;
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials: true');
@@ -17,34 +25,6 @@ Route::resource('/mnet/sms/gateway', 'GatewayAPI');
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Send email
-Route::post('send-contact-email','ContactUsController@send')->name('send.contactus');
-Route::get('send-invoice-email/{wasterequest}/process','PaymentController@sendInvoice')->name('send.invoice');
-
-Route::get('residentwastes','AdminController@residentwastes');
-Route::get('companywastes','AdminController@companywastes');
-
-
-Route::get('/payments',function (){
-    return view('payments');
-});
-
-Route::get('recyclerschedule',function (){
-    return view('recyclerschedule');
-});
-Route::get('wasteproducersschedule',function (){
-    return view('wasteproducersschedule');
-});
-Route::get('allavailablewaste',function (){
-    $waste=Wastes::all();
-    return view('generalavailablewaste')->withWastes($waste);
-});
-Route::get('adminviewwasterequests',function (){
-
-    $requests=\App\Wasterequest::all();
-    return view('adminviewwasterequests')->withRequests($requests);
-});
-
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,13 +32,91 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/paymentsrecords', 'PaymentController@outputPayment');
+Route::group(['middleware' => ['auth','admin']],function(){
+    //Send email
+    Route::post('send-contact-email','ContactUsController@send')->name('send.contactus');
+    Route::get('send-invoice-email/{wasterequest}/process','PaymentController@sendInvoice')->name('send.invoice');
 
-Route::group(['namespace'=>'Schedule'],function (){
+    Route::get('send-unavailable-email/{wasterequest}/send',function(Wasterequest $wasterequest){
+//        $wasterequest->load('recycler.user');
+        Notification::route('mail',$wasterequest->recycler->user->email)
+            ->notify(new WasteUnailable($wasterequest));
+        return redirect()->back();
+    })->name('send.not-available');
+
+    Route::get('residentwastes','AdminController@residentwastes');
+    Route::get('companywastes','AdminController@companywastes');
 
 
-    Route::get('/schedule','ResidentscheduleController@scheduleview');
+    Route::get('/payments',function (){
+        return view('payments');
+    });
+
+    Route::get('/payments/print',function (){
+        $options = new Options();
+        $options->setIsRemoteEnabled(true);
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml(view('report.payments')->with([
+            'payments' => \App\PaymentConfirmation::latest()->get()
+        ]));
+        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->render();
+        return $dompdf->stream(Carbon::today()->format('d M Y'));
+    })->name('print.payments');
+
+    Route::get('/wrequests/print',function (){
+        $options = new Options();
+        $options->setIsRemoteEnabled(true);
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml(view('report.requests')->with([
+            'requests' => \App\Wasterequest::latest()->get()
+        ]));
+        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->render();
+        return $dompdf->stream(Carbon::today()->format('d M Y'));
+    })->name('print.wrequests');
+
+    Route::get('/wastes/print',function (){
+        $options = new Options();
+        $options->setIsRemoteEnabled(true);
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml(view('report.wastes')->with([
+            'residentwastes' => \App\Residentwaste::latest()->get(),
+            'companywastes' => Companywaste::with('zone')->latest()->get()
+        ]));
+        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->render();
+        return $dompdf->stream(Carbon::today()->format('d M Y'));
+    })->name('print.wastes');
+
+    Route::get('recyclerschedule',function (){
+        return view('recyclerschedule');
+    });
+    Route::get('wasteproducersschedule',function (){
+        return view('wasteproducersschedule');
+    });
+    Route::get('allavailablewaste',function (){
+        $waste=Wastes::all();
+        return view('generalavailablewaste')->withWastes($waste);
+    });
+    Route::get('adminviewwasterequests',function (){
+
+        $requests=\App\Wasterequest::all();
+        return view('adminviewwasterequests')->withRequests($requests);
+    });
+
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('admin');
+
+    Route::get('/paymentsrecords', 'PaymentController@outputPayment');
+
+    Route::group(['namespace'=>'Schedule'],function (){
+
+        Route::get('/schedule','ResidentscheduleController@scheduleview');
+    });
+
 });
 
 
@@ -107,6 +165,7 @@ Route::group(['namespace'=>'Registration'],function(){
 
 
 });
+
 Route::group(['namespace'=>'Lists'],function(){
     Route::get('/residentlist','ResidentlistController@index');
     Route::get('/companylist','CompanylistController@index');
@@ -195,7 +254,6 @@ Route::group(['namespace'=>'Schedule'], function(){
 
 });
 Route::group(['namespace'=>'Mails'] , function(){
-
 
     Route::get('contact_us', 'ContactUSController@contactUS');
     Route::post('contact_us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);

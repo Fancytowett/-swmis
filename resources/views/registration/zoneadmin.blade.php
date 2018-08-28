@@ -21,6 +21,14 @@
                         <center> <h1 style="color:#33B5E5;">Zone admin</h1><b></b> </center>
                     </div>
                     <div class="panel-body">
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                @foreach ($errors->all() as $error)
+                                    {!! $error !!}<br/>
+                                @endforeach
+                            </div>
+                        @endif
                         <form role="form" method="post" action="{{url('/zoneadmin/save')}}">
                             {!! csrf_field() !!}
 
@@ -54,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="cpassword"style="color:#3097D1"> Confirm Password:</label>
-                                <input type="password" class="form-control" name="cpassword" id="email" placeholder="Confirm your password" required>
+                                <input type="password" class="form-control" name="password_confirmation" id="email" placeholder="Confirm your password" required>
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" value="Register" class="btn btn-primary">

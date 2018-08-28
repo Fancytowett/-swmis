@@ -13,13 +13,13 @@
                     <div class="panel-body">
                         <form role="form" action="{{url('agentresidentwastesave')}}" method="POST">
                             {!! csrf_field() !!}
-                            <div class="form-group">
-                                <select class="form-control" name="zone_id">
-                                    @foreach($zones as $zone)
-                                        <option value="{{$zone->id}}">{{$zone->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<select class="form-control" name="zone_id">--}}
+                                    {{--@foreach($zones as $zone)--}}
+                                        {{--<option value="{{$zone->id}}">{{$zone->name}}</option>--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <label for="date">Date</label>
                                 <input type="date" name="date" class="form-control" required>

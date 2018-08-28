@@ -32,7 +32,7 @@
                             <div class="col-md-4">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
-{{--                                        <h2><span>{{\App\Residentwaste::all()->sum('quantity')}}Kg </span></h2>--}}
+                                        <h2><span>{{\App\Residentwaste::all()->sum('quantity')}}Kg </span></h2>
                                         <p style="color: #33B5E5 ">Resident Waste</p>
                                     </div>
                                 </div>

@@ -8,6 +8,14 @@
                         <h1 style="font-family:Times New Roman;color:#3097D1;"><center>RESIDENT DETAILS</center></h1>
                     </div>
                     <div class="panel-body">
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                @foreach ($errors->all() as $error)
+                                    {!! $error !!}<br/>
+                                @endforeach
+                            </div>
+                        @endif
                         <form role="form" method="post" action="{{url('/resident/save')}}">
                             {!! csrf_field() !!}
                             <div class="form-group">
@@ -60,7 +68,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="cpassword"style="color:#3097D1"> Confirm Password:</label>
-                                <input type="password" class="form-control" name="cpassword" id="email" placeholder="Confirm your password" required>
+                                <input type="password" class="form-control" name="password_confirmation" id="email" placeholder="Confirm your password" required>
                             </div>
 
 

@@ -13,6 +13,8 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3>Company  waste available</h3>
+                        <a href="{{route('print.wastes')}}" class="btn-primary btn btn-xs"><i class="fa fa-print"></i> print</a>
+
                     </div>
                     <div class="panel-body">
                         <table class="table table-responsive table-hover table-striped" id="datatable">
@@ -32,10 +34,10 @@
                             <tbody>
                             @foreach( $companywastes as $companywaste)
                                 <tr>
-                                    <td>{{$companywaste->zone->id}}</td>
+                                    <td>{{$companywaste->zone->name}}</td>
                                     <td>{{$companywaste->agent_id}}</td>
                                     <td>{{$companywaste->date}}</td>
-                                    <td>{{$companywaste->day}}</td>
+                                    <td>{{$companywaste->day_name}}</td>
                                     <td>{{$companywaste->company_id}}</td>
                                     <td>{{$companywaste->created_at}}</td>
                                     <td>{{$companywaste->resident_id}}</td>

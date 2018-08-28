@@ -18,6 +18,13 @@ class CompanyController extends Controller
     }
 
     public function store(Request $request){
+
+        $this->validate($request, [
+                'email' => 'required|unique:users',
+                'password' => 'required|confirmed',
+                'phone' => 'min:10|numeric'
+            ]);
+
         $user = new User();
         $user->name=$request->input('name');
         $user->email=$request->input('email');

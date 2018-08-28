@@ -133,9 +133,31 @@
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
                                     @auth
-                                    <li class="nav-item">
-                                        <a  class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
-                                    </li>
+
+                                        @php $user_type = auth()->user()->user_type @endphp
+
+                                        @if($user_type == 0)
+                                        <li class="nav-item">
+                                            <a  class="nav-link js-scroll-trigger" href="{{ url('/home') }}">Home</a>
+                                        </li>
+                                        @elseif($user_type == 1)
+                                        <li class="nav-item">
+                                            <a  class="nav-link js-scroll-trigger" href="{{ url('/agentslanding') }}">Home</a>
+                                        </li>
+                                            @elseif($user_type == 2)
+                                        <li class="nav-item">
+                                            <a  class="nav-link js-scroll-trigger" href="{{ url('/zoneadminlanding') }}">Home</a>
+                                        </li>
+                                            @elseif($user_type == 3)
+                                        <li class="nav-item">
+                                            <a  class="nav-link js-scroll-trigger" href="{{ url('/wasteproducerlanding') }}">Home</a>
+                                        </li>
+                                            @elseif($user_type == 4)
+                                        <li class="nav-item">
+                                            <a  class="nav-link js-scroll-trigger" href="{{ url('/recyclerlanding') }}">Home</a>
+                                        </li>
+                                            @endif
+
                                     @else
                                     <li class="nav-item">
                                        <a class="nav-link js-scroll-trigger"  href="{{ route('login') }}">Login</a>

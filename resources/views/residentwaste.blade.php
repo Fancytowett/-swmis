@@ -13,6 +13,8 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <h3>Resident  waste available</h3>
+                        <a href="{{route('print.wastes')}}" class="btn-primary btn btn-xs"><i class="fa fa-print"></i> print</a>
+
                     </div>
                     <div class="panel-body">
                         <table class="table table-responsive table-hover table-striped" id="datatable">

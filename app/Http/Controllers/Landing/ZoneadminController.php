@@ -76,8 +76,8 @@ class ZoneadminController extends Controller
         return response()->json($zoneadmin);
     }
     public  function updateprofile(Zoneadmin $zoneadmin,Request $request){
-        $zoneadmin->update(array_except($request->Zoneadmin,'user'));
-        $zoneadmin->user->update($request->Zoneadmin['user']);
+        $zoneadmin->update(array_except($request->zoneadmin,'user'));
+        $zoneadmin->user->update($request->zoneadmin['user']);
         return response()->json(['success'=>true]);
     }
 
