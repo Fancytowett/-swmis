@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Registration;
 use App\Agent;
 use App\Http\Controllers\Controller;
+use App\Mail\SendUserPassword;
 use App\User;
 use App\Zone;
 use App\Zoneadmin;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class ZoneadminController extends Controller
@@ -32,7 +35,12 @@ class ZoneadminController extends Controller
          $zoneadmin->zone_id=$request->input('zone_id');
          $zoneadmin->phone=$request->input('phone');
          $zoneadmin->save();
-     return redirect()->back()->withStatus('successfully saved');
+
+        Mail::to($request->email)->send(new SendUserPassword($request));
+
+        Session::flash("Registered successfully. Password sent via email.");
+
+     return redirect()->back();
     }
     public function destroy($id)
     {

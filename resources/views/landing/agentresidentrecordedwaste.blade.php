@@ -18,6 +18,7 @@
                         <table class="table table-responsive table-hover table-striped" id="datatable">
                             <thead>
                             <tr>
+                                <th>Zone</th>
                                 <th>Agent Collected</th>
                                 <th>Date</th>
                                 <th>Day</th>
@@ -29,8 +30,9 @@
 
                             </thead>
                             <tbody>
-                            @foreach( $residentwaste as $residentwstes)
+                            @foreach( $residentwastes as $residentwaste)
                             <tr>
+                                <td>{{$residentwaste->zone}}</td>
                                 <td>{{$residentwaste->agent_id}}</td>
                                 <td>{{$residentwaste->date}}</td>
                                 <td>{{$residentwaste->day}}</td>

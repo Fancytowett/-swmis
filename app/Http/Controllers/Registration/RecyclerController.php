@@ -23,10 +23,13 @@ class RecyclerController extends Controller
         $user->save();
 
         $recycler= new Recycler();
-         $recycler->phone=$request->input('phone');
-         $recycler->user_id=$user->id;
-        $recycler->waste_type=$request->input('waste-type');
-         $recycler->save();
+        $recycler->phone=$request->input('phone');
+        $recycler->user_id=$user->id;
+        $recycler->waste_type=$request->input('waste_type');
+        $recycler->save();
+
+
+         auth()->login($user);
 
         return redirect('/recyclerlanding')->withStatus('Registered successfully');
 

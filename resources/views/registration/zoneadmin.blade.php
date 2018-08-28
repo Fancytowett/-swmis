@@ -36,7 +36,7 @@
 
                                 <div class="form-group">
                                     <label for="Phone"style="color:#3097D1">Phone:</label>
-                                    <input type="phone" class="form-control" name="phone" id="phone" placeholder="Enter your phone number" required>
+                                    <input  type="tel" class="form-control" name="phone" id="phone"  maxlength="10" placeholder="Enter your phone number" required>
                                 </div>
 
                                 <div class="form-group">

@@ -21,6 +21,10 @@ Route::resource('/mnet/sms/gateway', 'GatewayAPI');
 Route::post('send-contact-email','ContactUsController@send')->name('send.contactus');
 Route::get('send-invoice-email/{wasterequest}/process','PaymentController@sendInvoice')->name('send.invoice');
 
+Route::get('residentwastes','AdminController@residentwastes');
+Route::get('companywastes','AdminController@companywastes');
+
+
 Route::get('/payments',function (){
     return view('payments');
 });
@@ -134,12 +138,17 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/agentsschedule','AgentController@agentsschedule');
     Route::get('/zoneadminlanding','ZoneadminController@index');
 
+
     Route::get('/recyclerlanding','RecyclerController@index');
     Route::get('/recyclerprofile','RecyclerController@profile');
     Route::get('/recyclernots','RecyclerController@recyclernots');
+    Route::get('/reccompanywastes','RecyclerController@companywastes');
+    Route::get('/recresidentwastes','RecyclerController@residentwastes');
 
-    Route::get('/wasteproducerslanding','WasteproducersController@index');
-    Route::get('/wasteproducerprofile','WasteproducersController@wasteproducerprofile');
+
+
+//    Route::get('/wasteproducerslanding','WasteproducersController@index');
+    Route::get('/wasteproducerslanding','WasteproducersController@wasteproducerprofile');
     Route::get('/zoneresidents','WasteproducersController@zoneresidents');
     Route::get('/zonecompanies','WasteproducersController@zonecompanies');
     Route::get('/zonewasteproducersschedule','WasteproducersController@wasteproducersschedule');
@@ -147,7 +156,7 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/agentprofile','AgentController@profile');
     Route::get('/agentprofile/{agent}/get','AgentController@getProfile')->name('agent.profile.get');
     Route::post('/agentprofile/{agent}/update','AgentController@updateProfile')->name('agent.profile.update');
-    Route::get('/residentprofile/{resident}/get','WasteproducersController@tresidentgetProfile')->name('resident.profile.get');
+    Route::get('/residentprofile/{resident}/get','WasteproducersController@residentgetProfile')->name('resident.profile.get');
     Route::post('/residentprofile/{resident}/update','WasteproducersController@residentupdateProfile')->name('resident.profile.update');
     Route::get('/recyclerprofile/{recycler}/get','RecyclerController@getProfile')->name('recycler.profile.get');
     Route::post('/recyclerprofile/{recycler}/update','RecyclerController@updateProfile')->name('recycler.profile.update');
@@ -160,8 +169,7 @@ Route::group(['namespace'=>'Landing'],function() {
     Route::get('/zoneadminprofile','ZoneadminController@zoneadminprofile');
     Route::get('/zoneagents','ZoneadminController@zoneagents');
     Route::get('/zoneagentsschedule','ZoneadminController@zoneagentsschedule');
-    Route::get('/zonepayments','ZoneadminController@zonepayments');
-    Route::get('/zonepayments','ZoneadminController@zonepayments');
+    Route::get('/zonepayments','ZoneadminController@payments');
 
     Route::get('/zonesagentslist','ZoneadminController@listzoneagents');
     Route::get('/zonesresidentslist','ZoneadminController@listzoneresidents');

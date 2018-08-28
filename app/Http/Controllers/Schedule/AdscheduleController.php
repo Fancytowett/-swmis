@@ -42,7 +42,7 @@ class AdscheduleController extends Controller
              }
          }
 
-         return redirect()->back();
+         return redirect()->back()->with;
      }
 
     public function wasteproducersschedulelist(){

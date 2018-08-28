@@ -8,6 +8,7 @@ use App\Recycler;
 use App\Resident;
 use App\User;
 use App\Zone;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class ResidentsController extends Controller
@@ -35,8 +36,9 @@ class ResidentsController extends Controller
         $resident->waste_type=$request->input('waste_type');
         $resident->period=$request->input('period');
         $resident->save();
-
-        return redirect('/wasteproducerslanding')->withStatus('Registered succesfully');
+        auth()->login($user);
+//        Session::flash('Registered succesfully');
+        return redirect('/wasteproducerslanding')->withStatus('Registered successfully');
 
     }
     public  function destroy($id){

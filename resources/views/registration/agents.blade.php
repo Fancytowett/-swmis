@@ -22,15 +22,15 @@
                                     {!! csrf_field() !!}
                                     <div class="form-group">
                                         <label for="Name" style="color:#3097D1">Name:</label>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter name">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="phone " style="color:#3097D1">Phone:</label>
-                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                                        <input  type="tel" class="form-control" name="phone"  maxlength="10" minlength="10" id="phone" placeholder="Enter phone" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="Email " style="color:#3097D1">Email:</label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter email " required>
                                     </div>
                                     <div class="form-group" style="color:#3097D1">
                                         <label for="zone name">Zone Allocated:</label>

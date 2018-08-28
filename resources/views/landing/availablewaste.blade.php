@@ -4,7 +4,7 @@
 
 <div class="panel panel-info">
     <div class="panel-heading">
-        <h3 style="text-align: center;">Zones waste Available Report lists</h3>
+        <h3 style="text-align: center;">waste Available</h3>
         <a href="{{url('/recyclerrequestwaste')}}" class="btn btn-primary btn-xs">Request for Waste</a>
     </div>
     <div class="panel-body">

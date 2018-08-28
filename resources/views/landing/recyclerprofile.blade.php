@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="phone " >Phone:</label>
-                            <input type="text" v-model="recycler.phone" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                            <input type="text" v-model="recycler.phone" class="form-control"  maxlength="10"  name="phone" id="phone" placeholder="Enter phone">
                         </div>
                         <div class="form-group">
                             <label for="Email ">Email:</label>

@@ -78,35 +78,29 @@
             }
 
             header.masthead {
-                background-image:url("{{asset('images/header.jpg')}}");
+                background-image:url("{{asset('images/bottles1.png')}}");
             }
             #mainNav {
                 background-color: #33b5e5 !important;
             }
-            /*.stepwizard-row:before{*/
-                /*top:14px;*/
-                /*bottom: 0;*/
-                /*position: absolute;*/
-                /*content: "";*/
-                /*width: 100%;*/
-                /*height: 1px;*/
-                /*background-color: #ccc;*/
-                /*z-order:0;*/
-            /*}*/
-            /*.stepwizard-step{*/
-                /*display: table-cell;*/
-                /*text-align: center;*/
-                /*position:relative ;*/
-            /*}*/
-            /*.btn-circle{*/
-                /*width: 30px;*/
-                /*height: 30px;*/
-                /*text-align: center;*/
-                /*padding: 6px;*/
-                /*font-size: 12px;*/
-                /*line-height: 1.428571429;*/
-                /*border-radius: 15px;*/
-            /*}*/
+            .dropdown:hover>.dropdown-menu {
+
+                display: block;
+            }
+
+            .dropdown:hover>.dropdown-menu  li:hover  {
+                color:white !important;
+                background:#33b5e5 ;
+            }
+            .dropdown:hover>.dropdown-menu  li:hover a {
+                color:white !important;
+
+            }
+
+            .dropdown>.dropdown-toggle:active {
+                /*Without this, clicking will make it sticky*/
+                pointer-events: none;
+            }
 
         </style>
     </head>
@@ -130,7 +124,7 @@
            {{--@endif--}}
                 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                     <div class="container">
-                        <a class="navbar-brand js-scroll-trigger" href="#page-top">Swims</a>
+                        <a class="navbar-brand js-scroll-trigger" href="#page-top">  <img src="{{ asset('images/logo_white.png')  }}"></a>
                         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -146,9 +140,24 @@
                                     <li class="nav-item">
                                        <a class="nav-link js-scroll-trigger"  href="{{ route('login') }}">Login</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link js-scroll-trigger"  href="{{ route('register') }}">Register</a>
+
+                                    <li class="dropdown">
+                                        <a style="color:white;font-weight: bold;opacity: 0.9;" class=" dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Sign in</a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <li >
+                                                <a href="{{ url('resident') }}">Resident</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('company') }}">Company</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{url('recycler') }}">Recycler</a>
+                                            </li>
+                                        </ul>
                                     </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link js-scroll-trigger" href="#about">About</a>
                                     </li>
@@ -158,9 +167,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link js-scroll-trigger" href="#help">help</a>
-                                    </li>
+                                    {{--<li class="nav-item">--}}
+                                        {{--<a class="nav-link js-scroll-trigger" href="#help">help</a>--}}
+                                    {{--</li>--}}
                                 @endauth
                             </ul>
                                 @endif
@@ -174,12 +183,12 @@
                         <div class="row">
                             <div class="col-lg-10 mx-auto">
                                 <h1 style="color: white" class="text-uppercase">
-                                    <strong>Get best waste collection services and get recyclabe waste</strong>
+                                    <strong>Solid waste information Management system</strong>
                                 </h1>
                                 <hr>
                             </div>
                             <div class="col-lg-8 mx-auto">
-                                <p class="text-faded mb-5"> Keep your sorrounding clean</p>
+                                <p  style="font-weight: bolder;font-size: 30px;"> Get best waste collection services and get  recyclabe waste</p>
                                 <a class="btn btn-info btn-xl js-scroll-trigger" href="#about">Find Out More</a>
                             </div>
                         </div>
@@ -202,47 +211,13 @@
                         </div>
                     </div>
                 </section>
-               {{--<div class="container-fluid">--}}
-                   {{--<div class="stepwizard">--}}
-                       {{--<div class="stepwizard-row setup-panel">--}}
-                           {{--<div class="stepwizard-step">--}}
-                               {{--<p>Register as Resident(homestead)</p>--}}
-                               {{--<a href="#step-1" type ="button" class="btn btn-primary btn-circle">1</a>--}}
-
-                           {{--</div>--}}
-                           {{--<div class="stepwizard-step">--}}
-                               {{--<p>Register as a Company(business)</p>--}}
-                               {{--<a href="#step-2" type="button" class="btn btn-success btn-circle">2</a>--}}
-
-                           {{--</div>--}}
-                           {{--<div class="stepwizard-step">--}}
-                               {{--<p>Register as  Recycler</p>--}}
-                               {{--<a href="#step-3" type="button" class="btn btn-warning btn-circle">3</a>--}}
-
-                           {{--</div>--}}
-
-                       {{--</div>--}}
-                   {{--</div>--}}
-               {{--</div>--}}
-        {{--<div class="container">--}}
-            {{--<h3>Tabs</h3>--}}
-            {{--<ul class="nav nav-tabs">--}}
-                {{--<li class="active"><a href="#">Home</a></li>--}}
-                {{--<li><a href="{{url('/company')}}">Menu 1</a></li>--}}
-                {{--<li><a href="{{url('/resident/add')}}">Menu 2</a></li>--}}
-                {{--<li><a href="{{url('/recycler')}}">Menu 3</a></li>--}}
-            {{--</ul>--}}
-            {{--<br>--}}
-            {{--<p><strong>Note:</strong> This example shows how to create a basic navigation tab. It is not toggleable/dynamic yet (you can't click on the links to display different content)- see the last example in the Bootstrap Tabs and Pills Tutorial to find out how this can be done.</p>--}}
-        {{--</div>--}}
-
 
 
         <section id="services">
                     <div class="container-fluid" style="height: 200px;padding-top: 100px;">
                         <div class="row">
                             <div class="col-lg-12 text-center">
-                                <h2 class="section-heading">At Your Service</h2>
+                                <h2 class="section-heading" style="color: #33B5E5 !important;font-weight: bolder;">At Your Service</h2>
                                 <hr class="my-4">
                             </div>
                         </div>
@@ -251,30 +226,31 @@
                         <div class="row">
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
-                                    <i class="fa fa-4x fa-diamond text-info mb-3 sr-icons"></i>
-                                    <h3 class="mb-3"><a href="{{url('/resident')}}">Have your waste collected and disposed</a></h3>
-                                    <p class="text-muted mb-0">Register with us to have your waste collected</p>
+                                    <i class="fa fa-users text-info mb-3 sr-icons" style="font-size: 60px"></i>
+
+                                    <h3 class="mb-3" style="font-weight: bolder !important;"><a href="{{url('/resident')}}">Have your waste collected and disposed</a></h3>
+                                    <p class="text-muted mb-0 " style="color: #33B5E5 !important">Register as a  resident or homestead to have your waste collected</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
                                     <i class="fa fa-4x fa-paper-plane text-info mb-3 sr-icons"></i>
-                                    <h3 class="mb-3"><a href="{{url('/recycler')}}">Get variety of  Recyclable waste</a></h3>
-                                    <p class="text-muted mb-0"> Register  to Buy waste for recycling</p>
+                                    <h3 class="mb-3"style="font-weight: bolder !important;"><a href="{{url('/recycler')}}">Get variety of  Recyclable waste</a></h3>
+                                    <p class="text-muted mb-0" style="color: #33B5E5 !important"> Register  to Buy waste for recycling</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
-                                    <i class="fa fa-4x fa-newspaper-o text-info mb-3 sr-icons"></i>
-                                    <h3 class="mb-3"> Current Updates</h3>
-                                    <p class="text-muted mb-0">Get Updates on Solid waste management.</p>
+                                    <i class="fa fa-4x fa-diamond text-info mb-3 sr-icons"></i>
+                                    <h3 class="mb-3" style="font-weight: bolder !important;"><a href="{{url('/company')}}">As a company or a business register here </a></h3>
+                                    <p class="text-muted mb-0" style="color: #33B5E5 !important;"> Get rid of waste or clutter in your company or business</p>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6 text-center">
                                 <div class="service-box mt-5 mx-auto">
                                     <i class="fa fa-4x fa-heart text-info mb-3 sr-icons"></i>
-                                    <h3 class="mb-3">Trends</h3>
-                                    <p class="text-muted mb-0">What is trending</p>
+                                    <h3 class="mb-3"style="font-weight: bolder !important;"><a href="#contact"> Any concern or question?</a></h3>
+                                    <p class="text-muted mb-0"style="color: #33B5E5 !important">Feel free to get to us</p>
                                 </div>
                             </div>
                         </div>
@@ -351,7 +327,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 mx-auto text-center">
-                                <h2 class="section-heading">Let's Get In Touch!</h2>
+                                <h2 class="section-heading" style="font-weight: bolder;">Let's Get In Touch!</h2>
                                 <hr class="my-4">
                                 <p class="mb-5">CONTACT US</p>
                             </div>
@@ -360,7 +336,7 @@
                             <div class="col-md-6 offset-3">
                                 <div class="card ">
                                     <div class="card-heading bg-info">
-                                        <h4 style="padding: 20px">CONTACT FORM</h4>
+                                        <h4 style="padding: 20px;text-align: center;color: white;">CONTACT US</h4>
                                     </div>
                                     <div class="card-body">
 

@@ -22,7 +22,7 @@
 
                             <div class="form-group">
                                 <label for="Phone"style="color:#3097D1">Phone:</label>
-                                <input type="phone" class="form-control" name="phone" id="phone" placeholder="Enter your phone number" required>
+                                <input  type="tel" class="form-control" name="phone" id="phone"    maxlength="10" minlength="10" placeholder="Enter your phone number" required>
                             </div>
 
                             <div class="form-group">
@@ -36,9 +36,12 @@
 
                             <div class="form-group">
                                 <label for="Type of  waste" style="color:#3097D1">Type of waste:</label>
-                                <select class="form-control" name="waste_type">
-                                    <option value="1">Disposable</option>
-                                    <option value="2">Recyclable</option>
+                                <select name="waste_type" class="form-control">
+                                    <option value="1">metallic waste</option>
+                                    <option value="2">Plastics</option>
+                                    <option value="3">electronic-waste</option>
+                                    <option value="4">other general recyclable waste</option>
+                                    <option value="5">disposable waste</option>
                                 </select>
                             </div>
 

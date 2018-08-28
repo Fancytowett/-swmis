@@ -34,6 +34,7 @@ class PaymentController extends Controller
 
         $options = new Options();
         $options->setIsRemoteEnabled(true);
+
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml(view('emails.invoice')->with([
             'wrequest' => $wasterequest

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
 @section('content')
     <div class="container-fluid" id="residentlist">
         <div class="row">
@@ -17,7 +20,7 @@
                     <div class="panel-heading">
                         <center><h4>RESIDENTS LIST</h4></center>
                     </div>
-                <table class="table table-hover">
+                <table class="table table-hover" id="datatable">
                 <thead>
                     <tr>
                         <th>USER ID</th>
@@ -31,7 +34,6 @@
                         <th>DELETE</th>
                     </tr>
                 </thead>
-                    <tbody>
                     @foreach($residents as $resident)
                         <tr>
                             <td>{{$resident->id}}</td>
@@ -41,7 +43,7 @@
                             <td>{{$resident->zone->name}}</td>
                             <td>{{$resident->waste_type_name}}</td>
                             <td>{{$resident->period_name}}</td>
-                            <td> <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#view{{$resident->id}}" >View</button></td>
+                            <td> <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#view{{$resident->id}}" >View</button>
                             <div class="modal modal-danger fade" id="view{{$resident->id}}" style="margin-top: 100px;margin-left: 700px;margin-right: 250px;">
                                 <div class="modal-dialog-content" role="document">
                                     <div class="modal-content">
@@ -50,8 +52,7 @@
                                             <h4 class="modal-title text-left " id="myModalLabel" style="text-align: center;font-weight: bold;">Details</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <table class="table table-hover">
-                                                <tr>
+                                            <table class="table table-hover" >
                                                     <td>USER ID:</td>
                                                     <td>{{$resident->id}}</td>
                                                 </tr>
@@ -89,16 +90,16 @@
                                     </div>
                                 </div>
                             </div>
+                            </td>
 
-                            <td> <a  class=" btn btn-info btn-xs" onclick="deleteModal({{$resident->id}})" style="float: right;size: auto;">Delete</a></td>
+                            <td> <a  class=" btn btn-danger btn-xs" onclick="deleteModal({{$resident->id}})" style="float: right;size: auto;">Delete</a></td>
                         </tr>
                         @endforeach
-                    </tbody>
                 </table>
                 </div>
             </div>
         </div>
-    </div>
+
         <div class="modal modal-danger fade" id="delete" style="margin-top: 250px;margin-left: 700px;margin-right: 250px;">
             <div class="modal-dialog-content" role="document">
                 <div class="modal-content">
@@ -118,9 +119,11 @@
                 </div>
             </div>
         </div>
-
+    </div>
     @endsection
 @section('after-scripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
     <script>
         function deleteModal(id){
             window.residentlist.deleteModal(id);
@@ -147,5 +150,11 @@
                 }
             }
         })
+
+
+        $(document).ready(function () {
+            $('#datatable').DataTable();
+
+        });
     </script>
 @endsection

@@ -10,17 +10,20 @@ class wastes extends Model
         return $this->hasOne(Zone::class,'id','zone_id');
     }
     public function getWasteTypeNameAttribute(){
-    switch ($this->waste_type){
-        case 1:
-            return "Metallic waste";
-        case 2:
-            return "Plastics";
-        case 3:
-            return "electronic waste";
-        case 4:
-            return"other general recyclable waste";
+        switch ($this->waste_type) {
+            case 1:
+                return "Metallic waste";
+            case 2:
+                return "Plastics";
+            case 3:
+                return "electronic waste";
+            case 4:
+                return "other general recyclable waste";
+            case 5:
+                return"disposable";
 
-    }
+
+        }
         }
     public function getDayNameAttribute(){
         switch ($this->day){

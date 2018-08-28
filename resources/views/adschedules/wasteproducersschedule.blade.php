@@ -48,7 +48,7 @@
 
                             <div class="form-group">
                                 <label for="Agents">Agents</label>
-                                <select id="agents" class="form-control" name="agents[]" multiple="multiple">
+                                <select id="agents" class="form-control" name="agents[]" >
                                     @foreach($agents as $agent)
                                         <option value="{{$agent->id}}">{{$agent->user->name}}</option>
                                     @endforeach

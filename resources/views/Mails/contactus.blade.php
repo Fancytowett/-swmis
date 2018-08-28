@@ -2,7 +2,7 @@
     {{csrf_field()}}
     <div class="form-group">
         <label for="Name"> Name:</label>
-        <input type="text" name="name" class="form-control" placeholder="enter your first name">
+        <input type="text" name="name" class="form-control" placeholder="enter your username">
     </div>
 
     <div class="form-group">

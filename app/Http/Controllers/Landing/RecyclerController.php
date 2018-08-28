@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Landing;
 
+use App\Companywaste;
 use App\Recycler;
+use App\Residentwaste;
 use App\User;
 
 use App\Wasterequest;
@@ -57,7 +59,7 @@ class RecyclerController extends Controller
         $requestwaste->quantity=$request->input('quantity');
         $requestwaste->status=0;
         $requestwaste->save();
-        Session::flash('status',"Request sent successfully!");
+        Session::flash('status',"Request sent successfully! Please wait for confirmation");
         return redirect()->back();
 
 
@@ -72,5 +74,13 @@ class RecyclerController extends Controller
      {
          return view('landing.recyclersnots');
      }
+      public  function companywastes(){
+        $companywaste=Companywaste::all();
+        return view('landing.recyclercompanyviewwaste')->withCompanywastes($companywaste);
+      }
+      public function residentwastes(){
+        $residentwaste=Residentwaste::all();
+        return view('landing.recyclerresidentviewwaste')->withResidentwastes($residentwaste);
+      }
 
 }
