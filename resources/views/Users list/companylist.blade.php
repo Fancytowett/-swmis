@@ -56,7 +56,7 @@
                                             <h4 class="modal-title text-left " id="myModalLabel "style="text-align:center;font-weight: bold;">Details</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <table class="table">
+                                            <table class="table" >
                                                 <tr>
                                                     <td>USER ID</td>
                                                     <td>{{$company->id}}</td>

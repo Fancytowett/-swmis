@@ -54,7 +54,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone " style="color:#3097D1">Phone:</label>
-                                <input v-model="agent.phone" type="text" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                                <input v-model="agent.phone" type="text"   maxlength="10"  class="form-control" name="phone" id="phone" placeholder="Enter phone">
                             </div>
                             <div class="form-group">
                                 <label for="Email " style="color:#3097D1">Email:</label>

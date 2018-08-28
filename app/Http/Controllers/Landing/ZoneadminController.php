@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Landing;
 
 use App\Agent;
 use App\Company;
+use App\PaymentConfirmation;
 use App\Resident;
 use App\Residentwaste;
 use App\Wastes;
@@ -44,8 +45,9 @@ class ZoneadminController extends Controller
     public function zonecompanies(){
             return view('landing.zonedetails.zonecompanies');
       }
-    public function zonepayments(){
-            return view('landing.zonepayments');
+    public function payments(){
+        $payment=PaymentConfirmation::all();
+            return view('landing.zonepayments')->withPayments($payment);
 
       }
     public function listzoneagents()
@@ -74,8 +76,8 @@ class ZoneadminController extends Controller
         return response()->json($zoneadmin);
     }
     public  function updateprofile(Zoneadmin $zoneadmin,Request $request){
-        $zoneadmin->update(array_except($request->Zoneadmin,'user'));
-        $zoneadmin->user->update($request->Zoneadmin['user']);
+        $zoneadmin->update(array_except($request->zoneadmin,'user'));
+        $zoneadmin->user->update($request->zoneadmin['user']);
         return response()->json(['success'=>true]);
     }
 
@@ -112,6 +114,7 @@ class ZoneadminController extends Controller
 
         return view('landing.agentresidentrecordedwaste')->withWastes($residentwaste);
     }
+
 
 
 }

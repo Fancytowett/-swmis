@@ -15,7 +15,9 @@
                             {!! csrf_field() !!}
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Enter your email" >
+                                <select name="email" class="form-control">
+                                    <option value="{{$recycler->user->email}}">{{$recycler->user->email}}</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="waste_type">Waste Type</label>
@@ -24,11 +26,12 @@
                                     <option value="2">Plastics</option>
                                     <option value="3">electronic-waste</option>
                                     <option value="4">other general recyclable waste</option>
+                                    <option value="5">disposable waste</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="quantity">Quantity</label>
-                                <input type="text" class="form-control" name="quantity" placeholder="Enter quantity of waste to request" >
+                                <input type="text" class="form-control" name="quantity" placeholder="Enter quantity of waste to request" required >
                             </div>
 
                             <div class="form-group">

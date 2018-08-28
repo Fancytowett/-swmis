@@ -8,6 +8,7 @@ use App\Company;
 use App\Companywaste;
 use App\Resident;
 use App\Residentwaste;
+use App\User;
 use App\Zone;
 use App\Zoneadmin;
 
@@ -76,16 +77,19 @@ class AgentController extends Controller
      }
 
     public function agentcompanywasterecord(){
-        $zones = Zone::all();
-        $companies = Company::all();
-        return view('landing.agentcompanywasterecords',compact('zones','companies'));
+        $user=auth()->user();
+        $agent=Agent::where('user_id',$user->id)->first();
+        $zones=Zone::all();
+        $companies=Company::all();
+        return view('landing.agentcompanywasterecords',compact('zones','companies','agent'));
     }
 
     public  function agentresidentwastesave(Request $request){
+        $user= new user();
         $residentwastes = new Residentwaste();
-        $residentwastes->zone_id = auth()->user()->agent->zone->id;
+        $residentwastes->zone_id= auth()->user()->agent->zone->id;
         $residentwastes->agent_id = auth()->user()->agent->id;
-        $residentwastes->date = Carbon::today();
+        $residentwastes->date=Carbon::today();
         $residentwastes->day = $request->input('day');
         $residentwastes->resident_id = $request->input('resident_id');
         $residentwastes->quantity = $request->input('quantity');
@@ -95,10 +99,11 @@ class AgentController extends Controller
     }
 
     public function agentcompanywastesave( Request $request){
+//        $user= new user();
         $companywastes= new Companywaste();
-        $companywastes->zone_id=$request->input('zone_id');
+        $companywastes->zone_id=auth()->user()->agent->zone->id;
         $companywastes->agent_id=auth()->user()->agent->id;
-        $companywastes->date= Carbon::today();
+        $companywastes->date=Carbon::today();
         $companywastes->day=$request->input('day');
         $companywastes->company_id=$request->input('company_id');
         $companywastes->quantity=$request->input('quantity');

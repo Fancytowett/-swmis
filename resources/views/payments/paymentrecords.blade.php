@@ -12,7 +12,9 @@
             <div class="col-md-9">
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                       <h3> Payments</h3>
+                        <h3 style="font-weight: bolder;"> Payments  <p style="float: right;font-weight:bolder">   TOTAL:Ksh {{\App\PaymentConfirmation::all()->sum('trans_amount')}}</p>
+                        </h3>
+                        <a href="{{route('print.payments')}}" class="btn-primary btn btn-xs"><i class="fa fa-print"></i> print</a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-responsive table-hover table-striped" id="datatable">
@@ -25,12 +27,12 @@
                                 {{--<th>TRANSACTION_ID</th>--}}
                                 <th>Transaction time</th>
                                 <th>Client no.</th>
-                                <th>Invoice_no</th>
+                                {{--<th>Invoice_no</th>--}}
                                 {{--<th>ORG_ACCOUNT_BALANCE</th>--}}
                                 {{--<th>THIRD PARTY TRANSACTION ID</th>--}}
                                 <th>Customer_no</th>
                                 <th>Customer_name</th>
-                                <th>STATUS</th>
+
 
                             </tr>
                             </thead>
@@ -45,12 +47,12 @@
                                    {{--<td>{{$payment->trans_id}}</td>--}}
                                    <td>{{$payment->created_at}}</td>
                                    <td>{{$payment->business_short_code}}</td>
-                                   <td>{{$payment->invoice_no}}</td>
+                                   {{--<td>{{$payment->invoice_no}}</td>--}}
                                    {{--<td>{{$payment->org_account_bal}}</td>--}}
                                    {{--<td>{{$payment->third_party_trans_id}}</td>--}}
                                    <td>{{$payment->msisdn}}</td>
                                    <td>{{$payment->kyc_name}}</td>
-                                   <td>{{$payment->status}}</td>
+
                                    </tr>
                                @endforeach
 

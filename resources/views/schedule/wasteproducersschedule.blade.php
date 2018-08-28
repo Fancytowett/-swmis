@@ -1,9 +1,12 @@
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+@endsection
 <div class="panel panel-info">
     <div class="panel-heading">
         <center><h3>Waste collection Schedule</h3></center>
     </div>
     <div class="panel-body">
-        <table class=" table table-hover table-striped">
+        <table class=" table table-hover table-striped" id="datatable">
             <thead>
             <tr >
                 <th style="font-size:17px;"> Zone</th>
@@ -18,7 +21,7 @@
                 <tr>
                     <td>{{$schedule->zone->name}}</td>
                     <td>{{$schedule->date}}</td>
-                    <td>{{$schedule->day}}</td>
+                    <td>{{$schedule->day_name}}</td>
                     <td>{{$schedule->stime}}</td>
                     <td>{{$schedule->ftime}}</td>
                     <td>
@@ -37,3 +40,12 @@
         </table>
     </div>
 </div>
+@section('javascripts')
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#datatable').DataTable();
+
+        });
+    </script>
+@endsection

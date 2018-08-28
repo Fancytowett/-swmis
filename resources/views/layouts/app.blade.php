@@ -254,10 +254,12 @@
             background: #33B5E5 !important;
         }
         .navbar-brand,.nav li a {
-            color: #FFF !important;
+            color: #fff !important;
             font-weight: bold;
             font-size: larger;
         }
+
+
         .custom-nav .list-group-item {
             border: none !important;
         }
@@ -282,7 +284,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('images/logo_white.png')  }}">
                 </a>
 
             </div>
@@ -298,7 +300,7 @@
                     <!-- Authentication Links -->
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        {{--<li><a href="{{ route('register') }}">Register</a></li>--}}
 
                     @else
                         <li class="dropdown">
@@ -311,7 +313,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                        Logout
+                                       <p style="color:#33B5E5 ">Logout</p>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

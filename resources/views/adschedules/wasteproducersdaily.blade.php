@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{$schedule->zone->name}}</td>
                     <td>{{$schedule->date}}</td>
-                    <td>{{$schedule->day}}</td>
+                    <td>{{$schedule->day_name}}</td>
                     <td>{{$schedule->stime}}</td>
                     <td>{{$schedule->ftime}}</td>
                     <td>

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 class PaymentController extends Controller
 {
     public function outputPayment(){
-        $payment = PaymentConfirmation::all();
+        $payment = PaymentConfirmation::latest()->latest()->get();
 
         $total = $payment->sum('trans_amount');
 
@@ -34,6 +34,7 @@ class PaymentController extends Controller
 
         $options = new Options();
         $options->setIsRemoteEnabled(true);
+
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml(view('emails.invoice')->with([
             'wrequest' => $wasterequest

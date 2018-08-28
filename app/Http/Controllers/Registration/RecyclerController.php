@@ -15,6 +15,13 @@ class RecyclerController extends Controller
 
     }
      public function store(Request $request){
+
+         $this->validate($request, [
+             'email' => 'required|unique:users',
+             'password' => 'required|confirmed',
+             'phone' => 'min:10|numeric'
+         ]);
+
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -23,10 +30,13 @@ class RecyclerController extends Controller
         $user->save();
 
         $recycler= new Recycler();
-         $recycler->phone=$request->input('phone');
-         $recycler->user_id=$user->id;
-        $recycler->waste_type=$request->input('waste-type');
-         $recycler->save();
+        $recycler->phone=$request->input('phone');
+        $recycler->user_id=$user->id;
+        $recycler->waste_type=$request->input('waste_type');
+        $recycler->save();
+
+
+         auth()->login($user);
 
         return redirect('/recyclerlanding')->withStatus('Registered successfully');
 

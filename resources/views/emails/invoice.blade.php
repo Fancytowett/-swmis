@@ -8,21 +8,20 @@
 <body>
 <div class=" header clearfix">
     <div id="logo">
-        <img src="{{asset("pdf/logo.png")}}">
+        <img src="{{ asset('images/logo_blue.png')  }}">
     </div>
     <div id="company">
-        <h2 class="name">Top Oil</h2>
-        <div>P. O. Box 3405 - 3400,Siaya</div>
+        <h2 class="name">Nairobi County</h2>
+        <div>P. O. Box 899900 Nairobi</div>
         <div>(602) 519-0450</div>
-        <div><a href="mailto:">company@example.com</a></div>
+        <div><a href="mailto:">fancytowett@gmail.com</a></div>
     </div>
 </div>
 <div id="details" class="clearfix">
     <div id="client">
         <div class="to">ENTRY By:</div>
         <h2 class="name">{{$wrequest->recycler->user->name}}</h2>
-        <div class="address">796 Silver Harbour, TX 79273, US</div>
-        <div class="email"><a href="mailto:">email</a></div>
+        <div class="email"><a href="mailto:">{{$wrequest->recycler->user->email}}</a></div>
     </div>
     <div id="invoice" class="clearfix">
         <h1>ENTRY #344</h1>
@@ -46,7 +45,7 @@
         <td class="no">01</td>
         <td class="desc">
             <h3>{{$wrequest->type_name}}</h3>
-            Recyclebale Products o
+            Recyclebale Products
         </td>
         <td class="unit">KSh. 100.00</td>
         <td class="qty">{{$wrequest->quantity}} KGs</td>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Lists;
 
-use App\company;
+use App\Company;
 use Illuminate\Http\Request;
-use App\Http\Controllers\controller;
+use App\Http\Controllers\Controller;
+
 class CompanylistController extends Controller
 {
     public function index(){

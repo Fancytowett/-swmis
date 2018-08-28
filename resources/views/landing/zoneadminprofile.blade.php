@@ -40,13 +40,36 @@
                                 </div>
                             </div>
 
-                            <div class="modal modal-danger fade" id="edit">
-                                <div class="modal-dialog-content" role="document">
-                                    <div class="modal-content">
+                      </div>
+                        <div class="modal fade" id="edit" style="margin-top: 100px;margin-left: 700px;margin-right: 300px;margin-bottom: 50px;">
+                            <div class="modal-dialog-content" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"aria-label="close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title text-left  " id="myModalLabel" style="text-align: center;color: #3097D1 ">UPDATE PROFILE</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="Name" style="color:#3097D1">Name:</label>
+                                            <input type="text" v-model="zoneadmin.user.name"  class="form-control" name="name" id="name" placeholder="Enter name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone " style="color:#3097D1">Phone:</label>
+                                            <input type="tel" maxlength="10"  v-model="zoneadmin.phone" class="form-control" name="phone" id="phone" placeholder="Enter phone">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Email " style="color:#3097D1">Email:</label>
+                                            <input  type="email"  v-model="zoneadmin.user.email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-dark" data-dismiss="modal">No,Cancel</button>
+                                        <button type="submit" @click="updateZoneadmin"  class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
                             </div>
-                       </div>
+                        </div>
+
                 </div>
 
 @endsection

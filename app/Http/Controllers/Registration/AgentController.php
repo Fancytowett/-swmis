@@ -22,9 +22,14 @@ class AgentController extends Controller
 
     public function saveagent(Request $request){
 
-//        $this->validate($request,[
-//            'name' => 'required'
-//        ]);
+        $this->validate($request,[
+            'name' => 'required',
+            'email'=>'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'phone'=>'required|min:10',
+            'zone_id'=>'required'
+
+        ]);
 
         $user=new User();
         $user->name=$request->input('name');
@@ -44,7 +49,7 @@ class AgentController extends Controller
         //Code to send email.
         Mail::to($request->email)->send(new SendUserPassword($request));
 
-        Session::flash("Registered successfully. Password sent via email.");
+        session()->flash('status',"Registered successfully. Password sent via email.");
 
         return redirect()->back();
     }

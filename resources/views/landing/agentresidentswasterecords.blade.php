@@ -13,20 +13,20 @@
                     <div class="panel-body">
                         <form role="form" action="{{url('agentresidentwastesave')}}" method="POST">
                             {!! csrf_field() !!}
-                            <div class="form-group">
-                                <select class="form-control" name="zone_id">
-                                    @foreach($zones as $zone)
-                                        <option value="{{$zone->id}}">{{$zone->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<select class="form-control" name="zone_id">--}}
+                                    {{--@foreach($zones as $zone)--}}
+                                        {{--<option value="{{$zone->id}}">{{$zone->name}}</option>--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <label for="date">Date</label>
-                                <input type="date" name="date" class="form-control">
+                                <input type="date" name="date" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="Day">Day</label>
-                                <select name="day" class="form-control">
+                                <select name="day" class="form-control" required>
 
                                     <option value="1">Sunday</option>
                                     <option value="2">Monday</option>
@@ -39,7 +39,7 @@
                             </div>
                              <div class="form-group">
                                 <label for="name">Resident  Name</label>
-                                <select name="resident_id" class="form-control">
+                                <select name="resident_id" class="form-control" required>
                                     @foreach($residents as $resident)
                                     <option value="{{$resident->id}}">{{$resident->user->name}}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="Quantity of waste">Quantity of waste</label>
-                                <input type="text" name="quantity" class="form-control">
+                                <input type="text" name="quantity" class="form-control" required>
                             </div>
 
                             <div class="form-group">

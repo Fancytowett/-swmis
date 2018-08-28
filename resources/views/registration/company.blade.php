@@ -12,6 +12,14 @@
                         <h1 style="font-family:Times New Roman;color:#3097D1;"><center> COMPANY DETAILS</center></h1>
                     </div>
                     <div class="panel-body">
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissable fade in">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                @foreach ($errors->all() as $error)
+                                    {!! $error !!}<br/>
+                                @endforeach
+                            </div>
+                        @endif
                         <form role="form" method="post" action="{{url('/company/save')}}">
                             {!! csrf_field() !!}
                             <div class="form-group">
@@ -26,7 +34,7 @@
 
                             <div class="form-group">
                                 <label for="Company_Phone"style="color:#3097D1"> Company Phone No:</label>
-                                <input type="phone" class="form-control" name="phone" id="phone" placeholder="Enter Company phone number" required>
+                                <input  type="tel" class="form-control" name="phone" id="phone"  maxlength="10"   minlength="10" placeholder="Enter Company phone number" required>
                             </div>
 
                             <div class="form-group">
@@ -41,9 +49,12 @@
 
                             <div class="form-group">
                                 <label for="Type of  waste" style="color:#3097D1">Type of waste:</label>
-                                <select class="form-control" name="waste_type">
-                                    <option value="1">Disposable</option>
-                                    <option value="2">Recyclable</option>
+                                <select name="waste_type" class="form-control">
+                                    <option value="1">metallic waste</option>
+                                    <option value="2">Plastics</option>
+                                    <option value="3">electronic-waste</option>
+                                    <option value="4">other general recyclable waste</option>
+                                    <option value="5">disposable waste</option>
                                 </select>
                             </div>
 
@@ -62,7 +73,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="cpassword"style="color:#3097D1"> Confirm Password:</label>
-                                <input type="password" class="form-control" name="cpassword" id="email" placeholder="Confirm your password" required>
+                                <input type="password" class="form-control" name="password_confirmation" id="email" placeholder="Confirm your password" required>
                             </div>
 
 

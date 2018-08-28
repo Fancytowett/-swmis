@@ -17,11 +17,18 @@ class Company extends Model
     }
 
     public function getWasteTypeNameAttribute(){
-        switch ($this->waste_type){
+        switch ($this->waste_type) {
             case 1:
-                 return "Recyclable";
+                return "Metallic waste";
             case 2:
-                return "Disposable";
+                return "Plastics";
+            case 3:
+                return "electronic waste";
+            case 4:
+                return "other general recyclable waste";
+            case 5:
+                return"disposable";
+
 
         }
     }
