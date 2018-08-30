@@ -42,7 +42,7 @@ class AdscheduleController extends Controller
              }
          }
 
-         return redirect()->back()->with;
+         return redirect()->back()->withStatus('schedule succefully added');
      }
 
     public function wasteproducersschedulelist(){

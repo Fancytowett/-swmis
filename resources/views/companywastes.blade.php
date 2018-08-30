@@ -25,7 +25,7 @@
                                 <th>Date</th>
                                 <th>Day</th>
                                 <th>Time</th>
-                                <th>Resident picked from</th>
+                                <th>Company p picked from</th>
                                 <th>Quantity</th>
                             </tr>
 
@@ -38,9 +38,8 @@
                                     <td>{{$companywaste->agent_id}}</td>
                                     <td>{{$companywaste->date}}</td>
                                     <td>{{$companywaste->day_name}}</td>
-                                    <td>{{$companywaste->company_id}}</td>
                                     <td>{{$companywaste->created_at}}</td>
-                                    <td>{{$companywaste->resident_id}}</td>
+                                    <td>{{$companywaste->company_id}}</td>
                                     <td>{{$companywaste->quantity}}</td>
 
                                     <td></td>

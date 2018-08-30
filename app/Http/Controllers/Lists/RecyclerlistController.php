@@ -4,7 +4,7 @@ namespace App\Http\Controllers\lists;
 
 use App\Recycler;
 use Illuminate\Http\Request;
-use App\Http\Controllers\controller;
+use App\Http\Controllers\Controller;
 
 class RecyclerlistController extends Controller
 {

@@ -26,7 +26,7 @@
                                 <th>Day</th>
                                 <th>Time</th>
                                 <th>Resident  ID picked from</th>
-                                <th>Email</th>
+                                {{--<th>Email</th>th--}}
                                 <th>Quantity</th>
                             </tr>
 
@@ -41,7 +41,7 @@
                                     <td>{{$residentwaste->day_name}}</td>
                                     <td>{{$residentwaste->created_at}}</td>
                                     <td>{{$residentwaste->resident_id}}</td>
-                                    <td>{{$residentwaste->user->email}}</td>
+                                    {{--<td>{{$residentwaste->user->email}}</td>--}}
                                     <td>{{$residentwaste->quantity}}</td>
 
                                 </tr>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Lists;
 
 use App\Agent;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Controllers\controller;
 
-class agentlistController extends Controller
+class AgentlistController extends Controller
 {
     public  function index(){
         $list=Agent::with('user')->get();

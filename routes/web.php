@@ -169,7 +169,7 @@ Route::group(['namespace'=>'Registration'],function(){
 Route::group(['namespace'=>'Lists'],function(){
     Route::get('/residentlist','ResidentlistController@index');
     Route::get('/companylist','CompanylistController@index');
-    Route::get('/agentlist','agentlistController@index');
+    Route::get('/agentlist','AgentlistController@index');
     Route::get('/recyclerlist','RecyclerlistController@index');
     Route::get('/zoneadminlist','ZoneadminlistController@index');
     Route::get('/zonelists','ZoneListController@index');

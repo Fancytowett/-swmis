@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Landing;
 
-use App\company;
+use App\Company;
 use App\Resident;
 use App\Zone;
 use Illuminate\Http\Request;

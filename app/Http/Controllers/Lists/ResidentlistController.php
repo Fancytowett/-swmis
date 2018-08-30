@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Lists;
 
 use App\Resident;
 use Illuminate\Http\Request;
-use App\Http\Controllers\controller;
+use App\Http\Controllers\Controller;
 
 
 class ResidentlistController extends Controller

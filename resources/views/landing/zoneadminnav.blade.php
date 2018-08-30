@@ -15,8 +15,8 @@
             <li><a href="{{url('/zonescompanieslist')}}">Zone Companies</a></li>
             <li><a href="{{url('zonewasteproducersschedule')}}">Waste collection schedule</a></li>
             <li><a href="{{url('/zonepayments')}}">Payments</a></li>
-            <li><a href="{{url('/zonewastereportlist')}}">Available waste</a></li>
-         {{--</ul>--}}
+            {{--<li><a href="{{url('/zonewastereportlist')}}">Available waste_typeaste</a></li>--}}
+         </ul>
         </div>
     </div>
 </div>

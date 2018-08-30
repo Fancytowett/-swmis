@@ -37,10 +37,10 @@
                                     <td>{{$companywaste->zone->id}}</td>
                                     <td>{{$companywaste->agent_id}}</td>
                                     <td>{{$companywaste->date}}</td>
-                                    <td>{{$companywaste->day}}</td>
+                                    <td>{{$companywaste->day_name}}</td>
                                     <td>{{$companywaste->created_at}}</td>
                                     <td>{{$companywaste->company_id}}</td>
-                                    <td></td>
+                                    <td>{{$companywaste->quantity}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

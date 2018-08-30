@@ -69,7 +69,7 @@
                     <div class="col-md-4">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <h2>{{\App\PaymentConfirmation::all()->sum('trans_amount')}}</h2>
+                                <h2>{{\App\PaymentConfirmation::all()->sum('trans_amount')}}ksh</h2>
                                 <span style="color: #33B5E5">Total waste Payments</span>
                             </div>
                         </div>

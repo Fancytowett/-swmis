@@ -51,7 +51,7 @@
             </li>
 
             <li class="list-group-item"><a href="{{url('/recyclerlist')}}" >Recyclers</a></li>
-            <li class="list-group-item"><a href="{{url('/allavailablewaste')}}" >Waste Available</a></li>
+            {{--<li class="list-group-item"><a href="{{url('/allavailablewaste')}}" >Waste Availableailable</a></li>--}}
             <li class="list-group-item"><a href="{{url('/residentwastes')}}" > Resident Waste Available</a></li>
             <li class="list-group-item"><a href="{{url('/companywastes')}}" > Company Waste Available</a></li>
 
